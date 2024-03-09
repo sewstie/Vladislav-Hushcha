@@ -1,0 +1,23 @@
+@font-face {
+    src: url(/global/fonts/Roboto-Regular.ttf);
+    font-family: Roboto;
+}
+
+/* --primary-100:#1A1A1A;
+--primary-200:#404040;
+--primary-300:#999999;
+--accent-100:#FF4D4D;
+--accent-200:#ffecda;
+--text-100:#FFFFFF;
+--text-200:#e0e0e0;
+--bg-100:#000C11;
+--bg-200:#151c20;
+--bg-300:#  ; */
+
+body{
+    background-color: #000c11;
+}
+
+#canvas3d{
+    position: absolute;
+}
