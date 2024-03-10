@@ -1,10 +1,10 @@
 @font-face {
-    src: url(/public/fonts/Roboto-Medium.ttf);
+    src: url(./public/fonts/Roboto-Medium.ttf);
     font-family: Roboto;
 }
 
 @font-face {
-    src: url(/public/fonts/borna-medium-webfont.ttf);
+    src: url(./public/fonts/borna-medium-webfont.ttf);
     font-family: Borna;
 }
 
