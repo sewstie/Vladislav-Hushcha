@@ -1,6 +1,11 @@
 @font-face {
-    src: url(/global/fonts/Roboto-Regular.ttf);
+    src: url(/public/fonts/Roboto-Medium.ttf);
     font-family: Roboto;
+}
+
+@font-face {
+    src: url(/public/fonts/borna-medium-webfont.ttf);
+    font-family: Borna;
 }
 
 /* --primary-100:#1A1A1A;
@@ -12,10 +17,12 @@
 --text-200:#e0e0e0;
 --bg-100:#000C11;
 --bg-200:#151c20;
---bg-300:#  ; */
+--bg-300:#2b3337;*/
 
 body{
-    background-color: #000c11;
+    background: linear-gradient(180deg, #000C11 0%, #2B3337 99.99%, #000C11 100%);
+    min-height: 100vh;
+    font-family: Borna;
 }
 
 #canvas3d{
