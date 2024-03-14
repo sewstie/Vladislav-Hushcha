@@ -1,12 +1,4 @@
-@font-face {
-    src: url(./public/fonts/Roboto-Medium.ttf);
-    font-family: Roboto;
-}
-
-@font-face {
-    src: url(./public/fonts/borna-medium-webfont.ttf);
-    font-family: Borna;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 /* --primary-100:#1A1A1A;
 --primary-200:#404040;
@@ -22,9 +14,48 @@
 body{
     background: linear-gradient(180deg, #000C11 0%, #2B3337 99.99%, #000C11 100%);
     min-height: 100vh;
-    font-family: Borna;
+    font-family: Roboto;    
+    color: #FFFFFF;
+}
+.container{
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    padding: 0 4.16vw;
+}
+
+/*     header     */
+
+.header{
+    padding: 5.5vh 0;
+}
+.header-wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-logo{
+    font-size: 1.7vw;
+    color: #FF4D4D;
+    font-style: italic;
+    font-weight: 700;
+}
+.header-menu{
+    display: flex;
+}
+.header-wrap a{
+    text-decoration: none;
+}
+.header-wrap li{
+    padding: 0.52vw 1.3vw 0.32vw;
+    z-index: 1;
+}
+.header-wrap li a{
+    font-size: 1.25vw;
+    color: inherit;
 }
 
 #canvas3d{
-    position: absolute;
 }
+
+
