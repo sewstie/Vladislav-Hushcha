@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@font-face {
+    font-family: 'urbane';
+    src: url('/public/fonts/Urbane-Medium.eot')format('embedded-opentype');
+}
+
 
 /* --primary-100:#1A1A1A;
 --primary-200:#404040;
@@ -16,6 +21,7 @@ body{
     min-height: 100vh;
     font-family: Roboto;    
     color: #FFFFFF;
+    font-weight: 500;
 }
 .container{
     margin: 0 auto;
@@ -53,9 +59,8 @@ body{
 .header-wrap li a{
     font-size: 1.25vw;
     color: inherit;
+    font-family: "urbane";
 }
 
 #canvas3d{
 }
-
-
