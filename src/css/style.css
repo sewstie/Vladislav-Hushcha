@@ -17,12 +17,11 @@
 --bg-300:#2b3337;*/
 
 body{
-    background: radial-gradient( #000C11 0%, #151c20 50%, #2b3337 100%);
+    background: radial-gradient( #2b3337 0%, #151c20 50%, #000C11 100%);
     min-height: 100vh;
     font-family: Roboto;    
     color: #FFFFFF;
     font-weight: 500;
-    height: 200vh;
     font-style: normal;
 }
 .container{
@@ -55,15 +54,16 @@ body{
     font-style: italic;
     font-weight: 700;
 
-    padding: 0.35vw 0.89vw;
+    padding: 0.55vw 0.89vw;
     background-color: #1010104d;
     backdrop-filter: blur(10px);
     border-radius: 8px;
 }
 .header-menu{
     display: flex;
-    
-    padding: 0.35vw 0.89vw;
+    align-items: center;
+
+    padding: 0.25vw 0.89vw;
     background-color: #1010104d;
     backdrop-filter: blur(10px);
     border-radius: 8px;
@@ -79,7 +79,15 @@ body{
     font-size: 1.25vw;
     color: inherit;
     font-family: "urbane";
+    transition: all 0.5s;
 }
+
+.header-wrap li a:hover{
+    color: #FF4D4D;
+    transition: all 0.5s;
+}
+
+/*    intro     */
 
 .intro{
     margin-top: 10vh;
@@ -95,7 +103,12 @@ body{
     line-height: 90px;
 }
 
+.intro-text span{
+    color: #FF4D4D;
+}
+
 #canvas3d{
     margin-left: 20vw;
 }
 
+/*    about     */
