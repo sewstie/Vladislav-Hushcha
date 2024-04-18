@@ -17,11 +17,13 @@
 --bg-300:#2b3337;*/
 
 body{
-    background: linear-gradient(180deg, #000C11 0%, #2B3337 99.99%, #000C11 100%);
+    background: radial-gradient( #000C11 0%, #151c20 50%, #2b3337 100%);
     min-height: 100vh;
     font-family: Roboto;    
     color: #FFFFFF;
     font-weight: 500;
+    height: 200vh;
+    font-style: normal;
 }
 .container{
     margin: 0 auto;
@@ -34,6 +36,13 @@ body{
 
 .header{
     padding: 5.5vh 0;
+    position: fixed;
+    padding-bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 90;
 }
 .header-wrap{
     display: flex;
@@ -45,9 +54,19 @@ body{
     color: #FF4D4D;
     font-style: italic;
     font-weight: 700;
+
+    padding: 0.35vw 0.89vw;
+    background-color: #1010104d;
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
 }
 .header-menu{
     display: flex;
+    
+    padding: 0.35vw 0.89vw;
+    background-color: #1010104d;
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
 }
 .header-wrap a{
     text-decoration: none;
@@ -62,5 +81,21 @@ body{
     font-family: "urbane";
 }
 
-#canvas3d{
+.intro{
+    margin-top: 10vh;
 }
+
+.intro-text{
+    position: absolute;
+    top: 15vh;
+
+    font-family: "urbane";
+    font-size: 84px;
+    font-weight: 700;
+    line-height: 90px;
+}
+
+#canvas3d{
+    margin-left: 20vw;
+}
+
