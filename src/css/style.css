@@ -140,35 +140,56 @@ body{
     z-index: -1;
 }
 
-.about-wrap{
+.about .wrap{
     margin-top: 10vh;
 
     display: flex;
     justify-content: space-between;
 }
 
-.about-text{
-    width: 50vw;
+.about h4{
+    width: 45vw;
 
+    display: flex;
+    align-items: center;
+
+    font-family: "urbane";
     text-align: left;
-    font-size: 1.5vw;
-    line-height: 40px;
+    font-size: 1.7vw;
+    line-height: 50px;
 }
 
-.about-block{
-    display: grid;
+.about .skills{
+    display: flex;
+    gap: 13%;
 }
 
-.about__content{
+.skills__row{
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    justify-content: center;
+}
+
+.skills__item{
     padding: 7px;
+    width: 150px;
+    height: 95px;
     border-radius: 8px;
-    border: #FF4D4D solid 1px;
+    border: #FF4D4D solid 2px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    align-items: center;
 }
 
-.about__content img{
+.skills__item img{
     width: 50px;
     height: 50px;
 }
 
-.about__content h5{
+.skills__item h5{
+    text-transform: uppercase;
+    font-family: "urbane";
 }
