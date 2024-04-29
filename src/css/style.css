@@ -92,6 +92,7 @@ body{
 
 .intro{
     margin-top: 10vh;
+    min-height: 90vh;
 }
 
 .intro-text{
@@ -115,7 +116,7 @@ body{
 /*    about     */
 
 .about{
-    margin-top: -8.5vh;
+    margin-top: 1.5vh;
 }
 
 .about h3{
@@ -172,7 +173,7 @@ body{
 }
 
 .skills__item{
-    padding: 7px;
+    padding: 8px;
     width: 150px;
     height: 95px;
     border-radius: 8px;
