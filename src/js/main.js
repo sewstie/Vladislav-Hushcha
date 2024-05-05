@@ -33,50 +33,6 @@ ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 
 ScrollTrigger.refresh();
 
-const sections = gsap.utils.toArray(".section");
-let maxWidth = 0;
-
-const getMaxWidth = () => {
-  maxWidth = 0;
-  sections.forEach((section) => {
-  maxWidth += section.offsetWidth;
-  });
-};
-getMaxWidth();
-ScrollTrigger.addEventListener("refreshInit", getMaxWidth);
-
-let scrollTween = gsap.to(sections, {
-  x: () => `-${maxWidth - window.innerWidth}`,
-  ease: "none",
-});
-
-let horizontalScroll = ScrollTrigger.create({
-  animation: scrollTween,
-  trigger: ".wrapper",
-  pin: true,
-  scrub: true,
-  end: () => `+=${maxWidth - window.innerWidth}`,
-  invalidateOnRefresh: true
-});
-
-var dragRatio = (maxWidth / (maxWidth - window.innerWidth))
-
-var drag = Draggable.create(".drag-proxy", {
-  trigger: '.wrapper',
-  type: "x",
-  inertia: true,
-  allowContextMenu: true,
-  onPress() {
-    this.startScroll = horizontalScroll.scroll();
-  },
-  onDrag() {
-    horizontalScroll.scroll(this.startScroll - (this.x - this.startX) * dragRatio);
-  },
-  onThrowUpdate() {
-    horizontalScroll.scroll(this.startScroll - (this.x - this.startX) * dragRatio);
-  }
-})[0];
-
 const anchorLinks = document.querySelectorAll('.header-menu a');
 
 anchorLinks.forEach((anchorLink) => {
@@ -143,3 +99,14 @@ gsap.to('.typewriter', {
     }, 500);
   }
 })
+
+const blob = document.getElementById('blob');
+
+document.body.onpointermove = (event) => {
+  const {clientX, clientY} = event;
+
+  blob.animate({
+    left: `${clientX}px`,
+    top: `${clientY}px`
+}, { duration: 3000, fill: 'forwards'});
+}
