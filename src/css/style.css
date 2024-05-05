@@ -29,7 +29,7 @@ body{
     color: #FFFFFF;
     font-weight: 500;
     font-style: normal;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 .container{
     margin: 0 auto;
@@ -239,4 +239,17 @@ body{
     font-size: 3.5vw;
     font-weight: 600;
     color: #FF4D4D;
+}
+
+.works-wrap{
+    margin-top: 10vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.works-wrap .item{
+    width: 50vw;
+    height: 10vh;
+    border: 1px solid #FF4D4D;
+    border-radius: 12px;
 }
