@@ -18,8 +18,8 @@
 --bg-200:#151c20;
 --bg-300:#2b3337;*/
 
-html{
-    scroll-behavior: smooth;
+html {
+    overflow: hidden;
 }
 
 body{
@@ -36,6 +36,18 @@ body{
     position: relative;
     width: 100%;
     padding: 0 4.16vw;
+}
+
+.wrapper {
+    height: 100vh;
+}
+
+.section{
+    width: 100vw;
+}
+  
+#scroller{
+    overflow-x: hidden;
 }
 /*     header     */
 
@@ -241,15 +253,19 @@ body{
     color: #FF4D4D;
 }
 
-.works-wrap{
-    margin-top: 10vh;
+.works-wrap {
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
 }
 
-.works-wrap .item{
+.works-wrap .item {
     width: 50vw;
     height: 10vh;
     border: 1px solid #FF4D4D;
     border-radius: 12px;
+}
+
+.drag-proxy {
+    visibility: hidden;
+    position: absolute;
 }

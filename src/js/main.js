@@ -4,33 +4,78 @@ const app = new Application(canvas);
 app.load('./src/3d-models/scene.splinecode');
 
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(Draggable)
 
-ScrollTrigger.defaults({
-  scroller: '[data-scroll-container]',
-  markers: false
+const scroller = document.querySelector('#scroller');
+
+const locoScroll = new LocomotiveScroll({
+  el: scroller,
+  smooth: true
 });
 
-const locomotiveScroll = new LocomotiveScroll({
-  el: document.querySelector( '[data-scroll-container]' ),
-  smooth: true,
-  multiplier: 1.0,
-  getDirection: true,
-});
+locoScroll.on("scroll", ScrollTrigger.update);
 
-locomotiveScroll.on( 'scroll', ( instance ) => {
-  ScrollTrigger.update();
-  document.documentElement.setAttribute( 'data-scrolling', instance.direction );
-});
-
-ScrollTrigger.scrollerProxy( '[data-scroll-container]', {
+ScrollTrigger.scrollerProxy( scroller, {
   scrollTop( value ) {
-      return arguments.length ? locomotiveScroll.scrollTo( value, 0, 0 ) : locomotiveScroll.scroll.instance.scroll.y;
+      return arguments.length ? locoScroll.scrollTo( value, 0, 0 ) : locoScroll.scroll.instance.scroll.y;
   },
   getBoundingClientRect() {
       return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
   },
-  pinType: document.querySelector( '[data-scroll-container]' ).style.transform ? "transform" : "fixed"
+  pinType: scroller.style.transform ? "transform" : "fixed"
 } );
+
+ScrollTrigger.defaults({
+  scroller: scroller
+})
+
+ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+
+ScrollTrigger.refresh();
+
+const sections = gsap.utils.toArray(".section");
+let maxWidth = 0;
+
+const getMaxWidth = () => {
+  maxWidth = 0;
+  sections.forEach((section) => {
+  maxWidth += section.offsetWidth;
+  });
+};
+getMaxWidth();
+ScrollTrigger.addEventListener("refreshInit", getMaxWidth);
+
+let scrollTween = gsap.to(sections, {
+  x: () => `-${maxWidth - window.innerWidth}`,
+  ease: "none",
+});
+
+let horizontalScroll = ScrollTrigger.create({
+  animation: scrollTween,
+  trigger: ".wrapper",
+  pin: true,
+  scrub: true,
+  end: () => `+=${maxWidth - window.innerWidth}`,
+  invalidateOnRefresh: true
+});
+
+var dragRatio = (maxWidth / (maxWidth - window.innerWidth))
+
+var drag = Draggable.create(".drag-proxy", {
+  trigger: '.wrapper',
+  type: "x",
+  inertia: true,
+  allowContextMenu: true,
+  onPress() {
+    this.startScroll = horizontalScroll.scroll();
+  },
+  onDrag() {
+    horizontalScroll.scroll(this.startScroll - (this.x - this.startX) * dragRatio);
+  },
+  onThrowUpdate() {
+    horizontalScroll.scroll(this.startScroll - (this.x - this.startX) * dragRatio);
+  }
+})[0];
 
 const anchorLinks = document.querySelectorAll('.header-menu a');
 
@@ -44,7 +89,7 @@ anchorLinks.forEach((anchorLink) => {
       e.preventDefault();
       e.stopPropagation();
 
-      locomotiveScroll.scrollTo(target, { offset: -200 })
+      locoScroll.scrollTo(target, { offset: -200 })
   });
 });
 
