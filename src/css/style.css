@@ -18,9 +18,8 @@
 --bg-200:#151c20;
 --bg-300:#2b3337;*/
 
-html {
-    overflow: hidden;
-    cursor: default;
+html{
+    scroll-behavior: smooth;
 }
 
 body{
