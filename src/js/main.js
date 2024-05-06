@@ -4,34 +4,33 @@ const app = new Application(canvas);
 app.load('./src/3d-models/scene.splinecode');
 
 gsap.registerPlugin(ScrollTrigger);
-gsap.registerPlugin(Draggable)
 
-const scroller = document.querySelector('#scroller');
-
-const locoScroll = new LocomotiveScroll({
-  el: scroller,
-  smooth: true
+ScrollTrigger.defaults({
+  scroller: '[data-scroll-container]',
+  markers: false
 });
 
-locoScroll.on("scroll", ScrollTrigger.update);
+const locomotiveScroll = new LocomotiveScroll({
+  el: document.querySelector( '[data-scroll-container]' ),
+  smooth: true,
+  multiplier: 1.0,
+  getDirection: true,
+});
 
-ScrollTrigger.scrollerProxy( scroller, {
+locomotiveScroll.on( 'scroll', ( instance ) => {
+  ScrollTrigger.update();
+  document.documentElement.setAttribute( 'data-scrolling', instance.direction );
+});
+
+ScrollTrigger.scrollerProxy( '[data-scroll-container]', {
   scrollTop( value ) {
-      return arguments.length ? locoScroll.scrollTo( value, 0, 0 ) : locoScroll.scroll.instance.scroll.y;
+      return arguments.length ? locomotiveScroll.scrollTo( value, 0, 0 ) : locomotiveScroll.scroll.instance.scroll.y;
   },
   getBoundingClientRect() {
       return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
   },
-  pinType: scroller.style.transform ? "transform" : "fixed"
+  pinType: document.querySelector( '[data-scroll-container]' ).style.transform ? "transform" : "fixed"
 } );
-
-ScrollTrigger.defaults({
-  scroller: scroller
-})
-
-ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-
-ScrollTrigger.refresh();
 
 const anchorLinks = document.querySelectorAll('.header-menu a');
 
@@ -45,7 +44,7 @@ anchorLinks.forEach((anchorLink) => {
       e.preventDefault();
       e.stopPropagation();
 
-      locoScroll.scrollTo(target, { offset: -200 })
+      locomotiveScroll.scrollTo(target, { offset: -200 })
   });
 });
 

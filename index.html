@@ -7,22 +7,22 @@
     <link rel="stylesheet" href="./src/css/style.css">
     <title>Vladislav Hushcha</title>
 </head>
-<body>
+<body data-scroll-container>
     <header class="header">
         <div class="container">
             <div class="header-wrap">
                 <a href="./index.html" class="header-logo">Vladislav Hushcha</a>
                 <ul class="header-menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#works">Works</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#home" data-scroll-to>Home</a></li>
+                    <li><a href="#about" data-scroll-to>About</a></li>
+                    <li><a href="#works" data-scroll-to>Works</a></li>
+                    <li><a href="#" data-scroll-to>Contact</a></li>
                 </ul>
             </div>
         </div>
     </header>
-    <main id="scroller">
-        <section class="intro">
+    <main >
+        <section class="intro" data-scroll-section>
             <div class="container">
                 <div class="intro-wrap" id="home"> 
                     <div class="intro-text">
@@ -34,7 +34,7 @@
                 </div>
             </div>
         </section>
-        <section class="about">
+        <section class="about" data-scroll-section>
             <div class="container">
                 <h3>About</h3>
                 <div class="about-wrap" id="about">
@@ -78,7 +78,7 @@
                 </div>
             </div>
         </section>
-        <section class="works" id="works">
+        <section id='works' class="works" data-scroll-section>
             <div class="container">
                 <h3>Works</h3>
             </div>
@@ -90,7 +90,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
     <script type="module" src="./src/js/main.js"></script>
 </body>
