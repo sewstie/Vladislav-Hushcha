@@ -105,8 +105,14 @@ const blob = document.getElementById('blob');
 document.body.onpointermove = (event) => {
   const {clientX, clientY} = event;
 
-  blob.animate({
+  // Get the current scroll position from Locomotive Scroll
+  const scrollY = locoScroll.scroll.instance.scroll.y;
+
+  // Use gsap to animate the blob's position
+  gsap.to(blob, {
+    duration: 0.3,
     left: `${clientX}px`,
-    top: `${clientY}px`
-}, { duration: 3000, fill: 'forwards'});
+    top: `${clientY + scrollY}px`,
+    ease: 'power1.out'
+  });
 }
