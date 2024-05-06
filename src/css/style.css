@@ -37,6 +37,18 @@ body{
     width: 100%;
     padding: 0 4.16vw;
 }
+
+.wrapper {
+    height: 100vh;
+}
+
+.section{
+    width: 100vw;
+}
+  
+#scroller{
+    overflow-x: hidden;
+}
 /*     header     */
 
 .header{

@@ -32,6 +32,14 @@ ScrollTrigger.scrollerProxy( '[data-scroll-container]', {
   pinType: document.querySelector( '[data-scroll-container]' ).style.transform ? "transform" : "fixed"
 } );
 
+ScrollTrigger.defaults({
+  scroller: scroller
+})
+
+ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+
+ScrollTrigger.refresh();
+
 const anchorLinks = document.querySelectorAll('.header-menu a');
 
 anchorLinks.forEach((anchorLink) => {
@@ -104,14 +112,8 @@ const blob = document.getElementById('blob');
 document.body.onpointermove = (event) => {
   const {clientX, clientY} = event;
 
-  // Get the current scroll position from Locomotive Scroll
-  const scrollY = locoScroll.scroll.instance.scroll.y;
-
-  // Use gsap to animate the blob's position
-  gsap.to(blob, {
-    duration: 0.3,
+  blob.animate({
     left: `${clientX}px`,
-    top: `${clientY + scrollY}px`,
-    ease: 'power1.out'
-  });
+    top: `${clientY}px`
+}, { duration: 3000, fill: 'forwards'});
 }
