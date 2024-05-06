@@ -32,14 +32,6 @@ ScrollTrigger.scrollerProxy( '[data-scroll-container]', {
   pinType: document.querySelector( '[data-scroll-container]' ).style.transform ? "transform" : "fixed"
 } );
 
-ScrollTrigger.defaults({
-  scroller: scroller
-})
-
-ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-
-ScrollTrigger.refresh();
-
 const anchorLinks = document.querySelectorAll('.header-menu a');
 
 anchorLinks.forEach((anchorLink) => {
@@ -107,13 +99,4 @@ gsap.to('.typewriter', {
   }
 })
 
-const blob = document.getElementById('blob');
-
-document.body.onpointermove = (event) => {
-  const {clientX, clientY} = event;
-
-  blob.animate({
-    left: `${clientX}px`,
-    top: `${clientY}px`
-}, { duration: 3000, fill: 'forwards'});
-}
+const customCursor = new dpkCursor({ ease: 0.03 });
