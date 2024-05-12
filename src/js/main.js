@@ -1,7 +1,7 @@
-import { Application } from '/public/js/runtime.js';
+import { Application } from 'https://cdn.skypack.dev/@splinetool/runtime';
 const canvas = document.getElementById('canvas3d');
 const app = new Application(canvas);
-app.load('./src/3d-models/scene.splinecode');
+app.load('https://prod.spline.design/X3kfNrOVNM36aMR0/scene.splinecode');
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -109,3 +109,14 @@ document.body.onpointermove = (event) => {
     top: `${clientY}px`
 }, { duration: 3000, fill: 'forwards'});
 }
+
+ScrollTrigger.create({
+  trigger: '.about',
+  start: 'top top+=150',
+  onEnter: () => {
+    gsap.fromTo(blob, {display: 'block', x: '-100%', opacity: 0 }, { x: '0', opacity: 0.66, duration: 2 });
+  },
+  onLeaveBack: () => {
+    gsap.fromTo(blob, { x: '-%', opacity: 0.66 }, { x: '100%', opacity: 0, duration: 1, display: 'none'});
+  },
+});
