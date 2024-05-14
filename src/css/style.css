@@ -6,12 +6,12 @@
     font-family: 'urbane';
     src: url('/public/fonts/Urbane-Medium.woff')format("woff");
 }
-
 @font-face {
-    font-family: 'urbane';
-    src: url('/public/fonts/Urbane-DemiBold.woff')format("woff");
-    font-weight: 500;
-}
+    font-family: 'polt';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Polt Regular'), url('../../public/fonts/Polt-bold.woff') format('woff');
+ }
 
 :root{
 --primary-100:#1A1A1A;
@@ -21,7 +21,7 @@
 --accent-200:#96C0B3;
 --text-100:#FFFFFF;
 --text-200:#e0e0e0;
---bg-100:#000C11;
+--bg-100: black;
 --bg-200:#151c20;
 --bg-300:#2b3337;
 }
@@ -32,7 +32,7 @@ html {
 }
 
 body{
-    background-color: black;
+    background-color: var(--bg-100);
     min-height: 100vh;
     font-family: Roboto;    
     color: #FFFFFF;
@@ -63,7 +63,7 @@ body{
     translate: -50% -50%;
     border-radius: 50%;
     animation: rotate 20s infinite;
-    filter: blur(175px);
+    filter: blur(125px);
     z-index: -2;
   }
 
@@ -72,7 +72,7 @@ body{
     width: 100%;
     position: absolute;
     z-index: -1;
-    backdrop-filter: blur(175px);
+    backdrop-filter: blur(125px);
   }
 
   @keyframes rotate {
@@ -143,19 +143,19 @@ body{
     transition: all 0.5s;
 }
 
-/*    intro     */
+/*    hero     */
 
-.intro{
+.hero{
     padding-top: 5vh;
     min-height: 100vh;
 }
 
-.intro-text {
+.hero-text {
     position: absolute;
     top: 20vh;
     width: 37vw;
 }
-.intro-text p {
+.hero-text p {
     width: 37vw;
 
     color: #FFFFFF;
@@ -165,7 +165,7 @@ body{
     line-height: 90px;
 }
 
-.word {
+.hero-text .word {
     color: var(--accent-100);
 }
 
@@ -188,7 +188,7 @@ body{
 
 .about{
     margin-top: 1.5vh;
-    min-height: 100vh;
+    min-height: 120vh;
 }
 
 .about h3{
@@ -203,7 +203,7 @@ body{
 .about h3::after{
     position: absolute;
     content: '';
-    border-bottom: 18px solid #FF4D4D;
+    border-bottom: 18px solid var(--accent-100);
     width: 150px;
     display: block;
     margin: 0 auto;
@@ -213,102 +213,44 @@ body{
     z-index: -1;
 }
 
-.about .about-wrap{
-    margin-top: 10vh;
+#about h5{
+    margin-top: 5vh;
+    font-family: "polt";
+    font-size: 7vw;
+    font-weight: bold;
+}
 
+#about .wrap-row {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    transition: 0.3s ease-in-out;
 }
 
-.about h4{
-    width: 50vw;
-
-    display: flex;
-    align-items: center;
-
-    font-family: "urbane";
-    text-align: left;
-    font-size: 1.7vw;
-    line-height: 50px;
+#about .wrap-row h5{
+    padding-top: 1.35vh;
+    padding-bottom: 1.35vh;
+    margin-top: 0;
+    transition: 0.5s ease-in-out;
 }
 
-.about .skills{
-    display: flex;
-    gap: 13%;
+#about p {
+    display: none;
+    width: 40vw;
+    font-size: 1.35vw;
 }
 
-.skills__row{
-    display: flex;
-    flex-direction: column;
-    gap: 5vh;
-    justify-content: center;
+#about .wrap-row h5:hover {
+    opacity: 1;
+    color: var(--accent-200);
+    transition: 0.3s ease-in-out;
 }
 
-.skills__item {
-    position: relative;
-    padding: 8px;
-    width: 140px;
-    height: 98px;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-    align-items: center;
-    display: flex;
-    z-index: 1;
+#about.child-hover .wrap-row:not(:hover) h5 { 
+    filter: blur(25px);
+    transition: 0.5s ease-in-out;
 }
 
-.skills__item::before{
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 15px;
-    border: 1px solid transparent;
-    background: linear-gradient(140deg, #FF4D4D, #fb837f, #FF4D4D, #fb837f) border-box;
-    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-}
-
-.skills__item img{
-    width: 50px;
-    height: 50px;
-}
-
-.skills__item h5{
-    text-transform: uppercase;
-    font-family: "urbane";
-    font-weight: 500;
-}
-
-/*    portfolio     */
-
-.works{
-    min-height: 100vh;
-}
-
-.works h3{
-    position: relative;
-
-    text-align: center;
-    font-family: "urbane";
-    font-size: 3.5vw;
-    font-weight: 600;
-    color: #FF4D4D;
-}
-
-.wrapper {
-    height: 100vh;
-    display: flex;
-    gap: 30vh;
-}
-
-.section{
-    width: 80vh;
-    height: 10vw;
-    border: 1px solid #FF4D4D;
-    border-radius: 12px;
-}
-
-.drag-proxy {
-    visibility: hidden;
-    position: absolute;
+#about .wrap-row h5:hover + p {
+    display: block;
 }
