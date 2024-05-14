@@ -87,39 +87,28 @@ body{
     }
   }
 
-  #loader {
-    position: fixed; /* Cover the whole viewport */
+/*     loader     */
+
+.loader {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: black; /* Black background */
-    display: flex; /* Center the progress bar and percentage */
+    background-color: black;
+    z-index: 9999;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 9999; /* Ensure it's on top */
-}
-
-.loader-bar {
-    width: 0%; /* Initial width is 0 */
-    height: 10px; /* Adjust height as needed */
-    background-color: #fff; /* White progress color */
-    transition: width 0.3s ease; /* Smooth transition */
-    /* ...other styles... */
-}
-.loader-bar::before {
-    content: '';
-    display: block;
-    height: 100%;
-    width: 100%; /* Fill the parent */
-    background-color: inherit; /* Inherit color from parent */
 }
 
 .loader-percentage {
-    color: rgb(255, 0, 0);
-    margin-top: 10px; /* Adjust spacing as needed */
-    font-size: 20px; /* Adjust font size as needed */
+    color: #96C0B3;
+    text-align: center;
+    margin-top: 4vh;
+    font-size: 8vw;
+    transition: color 0.3s ease;
 }
 
 

@@ -6,25 +6,35 @@ app.load('https://prod.spline.design/X3kfNrOVNM36aMR0/scene.splinecode');
 
 /* Loading screen */
 
+gsap.registerPlugin(TextPlugin);
+
 window.addEventListener('load', () => {
-  const loader = document.getElementById('loader');
-  const bar = document.querySelector('.loader-bar');
+  const loader = document.querySelector('.loader');
   const percentage = document.querySelector('.loader-percentage');
 
   let width = 0;
   const interval = setInterval(() => {
       if (width >= 100) {
           clearInterval(interval);
-          loader.style.opacity = 0; 
-          setTimeout(() => loader.style.display = 'none', 500);
+          gsap.to(loader, {
+            opacity: 0,
+            scale: 0.8,
+            duration: 0.6,
+            onComplete: () => loader.style.display = 'none'
+          });
+          gsap.to('.typewriter', {
+              text: `Hi, I'm <span class='word'>Vlad</span>, a Creative Web Developer.`,
+              duration: 2.6,
+              ease: 'power1.in',
+              onComplete: () => setTimeout(() => document.querySelector('.cursor').style.display = 'none', 750)
+          });
       } else {
           width++;
-          bar.style.width = width + '%';
-          percentage.textContent = width + '%';
+          percentage.textContent = `${width}%`;
+          percentage.style.color = `rgb(${150 + (255 - 150) * width / 100}, ${192 + (87 - 192) * width / 100}, ${179 + (51 - 179) * width / 100})`;
       }
   }, 20);
 });
-
 
 /* Locomotive scroll & GSAP scroll trigger */
 gsap.registerPlugin(ScrollTrigger);
@@ -52,18 +62,21 @@ ScrollTrigger.scrollerProxy('[data-scroll-container]', {
   pinType: document.querySelector('[data-scroll-container]').style.transform ? "transform" : "fixed"
 });
 
-/* GSAP hero */
-gsap.registerPlugin(TextPlugin);
-gsap.to('.typewriter', {
-  text: "Hi, I'm <span class='word'>Vlad</span>, a Creative Web Developer.",
-  duration: 3,
-  ease: 'power1.in',
-  onComplete: function () {
-    setTimeout(function () {
-      document.querySelector('.cursor').style.display = 'none';
-    }, 500);
-  }
-})
+const anchorLinks = document.querySelectorAll('.header-menu a');
+
+anchorLinks.forEach((anchorLink) => {
+  let hashval = anchorLink.getAttribute('href');
+  if (hashval === '#') return; 
+
+  let target = document.querySelector(hashval);
+
+  anchorLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      locomotiveScroll.scrollTo(target, { offset: -150 })
+  });
+});
 
 /* Blob */
 const blob = document.getElementById('blob');
@@ -77,7 +90,7 @@ document.body.onpointermove = (event) => {
 
 ScrollTrigger.create({
   trigger: '.about',
-  start: 'top top+=150',
+  start: 'top top+=180',
   onEnter: () => {
     gsap.fromTo(blob, { display: 'block', x: '-100%', opacity: 0 }, { x: '0', opacity: 0.66, duration: 2 });
   },
