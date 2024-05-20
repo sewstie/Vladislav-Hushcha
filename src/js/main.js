@@ -1,4 +1,5 @@
 /* hero 3d-object */
+
 import { Application } from 'https://cdn.skypack.dev/@splinetool/runtime';
 const canvas = document.getElementById('canvas3d');
 const app = new Application(canvas);
@@ -12,6 +13,8 @@ window.addEventListener('load', () => {
   const loader = document.querySelector('.loader');
   const percentage = document.querySelector('.loader-percentage');
 
+  locomotiveScroll.stop();
+
   let width = 0;
   const interval = setInterval(() => {
       if (width >= 100) {
@@ -20,7 +23,10 @@ window.addEventListener('load', () => {
             opacity: 0,
             scale: 0.8,
             duration: 0.6,
-            onComplete: () => loader.style.display = 'none'
+            onComplete: () => {
+              loader.style.display = 'none';
+              locomotiveScroll.start();
+            }
           });
           gsap.to('.typewriter', {
               text: `Hi, I'm <span class='word'>Vlad</span>, a Creative Web Developer.`,
@@ -37,13 +43,17 @@ window.addEventListener('load', () => {
 });
 
 /* Locomotive scroll & GSAP scroll trigger */
+
 gsap.registerPlugin(ScrollTrigger);
+
+const scroller = document.querySelector('#scroller');
+
 ScrollTrigger.defaults({
-  scroller: '[data-scroll-container]',
+  scroller: scroller,
   markers: false
 });
 const locomotiveScroll = new LocomotiveScroll({
-  el: document.querySelector('[data-scroll-container]'),
+  el: scroller,
   smooth: true,
   multiplier: 1.0,
   getDirection: true,
@@ -52,14 +62,14 @@ locomotiveScroll.on('scroll', (instance) => {
   ScrollTrigger.update();
   document.documentElement.setAttribute('data-scrolling', instance.direction);
 });
-ScrollTrigger.scrollerProxy('[data-scroll-container]', {
+ScrollTrigger.scrollerProxy(scroller, {
   scrollTop(value) {
     return arguments.length ? locomotiveScroll.scrollTo(value, 0, 0) : locomotiveScroll.scroll.instance.scroll.y;
   },
   getBoundingClientRect() {
     return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
   },
-  pinType: document.querySelector('[data-scroll-container]').style.transform ? "transform" : "fixed"
+  pinType: scroller.style.transform ? "transform" : "fixed"
 });
 
 const anchorLinks = document.querySelectorAll('.header-menu a');
@@ -74,11 +84,12 @@ anchorLinks.forEach((anchorLink) => {
       e.preventDefault();
       e.stopPropagation();
 
-      locomotiveScroll.scrollTo(target, { offset: -150 })
+      locomotiveScroll.scrollTo(target, { offset: -135 })
   });
 });
 
 /* Blob */
+
 const blob = document.getElementById('blob');
 document.body.onpointermove = (event) => {
   const { clientX, clientY } = event;
@@ -114,6 +125,7 @@ document.querySelectorAll('#about .wrap-row h5').forEach((item) => {
 });
 
 /* About GSAP */
+
 document.querySelectorAll('.about h3, .about-wrap .word, .wrap-row h5').forEach((elem) => {
   gsap.from(elem, {
     scrollTrigger: {
@@ -129,3 +141,36 @@ document.querySelectorAll('.about h3, .about-wrap .word, .wrap-row h5').forEach(
   });
 });
 
+/* Works */
+
+const horizontalSections = gsap.utils.toArray('section.horizontal')
+
+horizontalSections.forEach(function (sec, i) {  
+  
+  var thisPinWrap = sec.querySelector('.pin-wrap');
+  var thisAnimWrap = thisPinWrap.querySelector('.animation-wrap');
+  
+  var getToValue = () => -(thisAnimWrap.scrollWidth - window.innerWidth); 
+
+  gsap.fromTo(thisAnimWrap, { 
+    x: () => thisAnimWrap.classList.contains('to-right') ? 0 : getToValue() 
+  }, { 
+    x: () => thisAnimWrap.classList.contains('to-right') ? getToValue() : 0, 
+    ease: "none",
+    scrollTrigger: {
+      trigger: sec,   
+      scroller: scroller,
+      start: "top top",
+      end: () => "+=" + (thisAnimWrap.scrollWidth - window.innerWidth),
+      pin: thisPinWrap,
+      invalidateOnRefresh: true,
+      anticipatePin: 1,
+      scrub: true,
+    }
+  });
+
+}); 
+
+ScrollTrigger.addEventListener("refresh", () => locomotiveScroll.update());
+
+ScrollTrigger.refresh();
