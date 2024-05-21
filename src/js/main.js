@@ -3,7 +3,7 @@
 import { Application } from 'https://cdn.skypack.dev/@splinetool/runtime';
 const canvas = document.getElementById('canvas3d');
 const app = new Application(canvas);
-app.load('https://prod.spline.design/X3kfNrOVNM36aMR0/scene.splinecode');
+app.load('https://prod.spline.design/eL7BJfHITeWpXVau/scene.splinecode');
 
 /* Loading screen */
 
@@ -84,7 +84,7 @@ anchorLinks.forEach((anchorLink) => {
       e.preventDefault();
       e.stopPropagation();
 
-      locomotiveScroll.scrollTo(target, { offset: -135 })
+      locomotiveScroll.scrollTo(target, { offset: -145 })
   });
 });
 
@@ -141,36 +141,18 @@ document.querySelectorAll('.about h3, .about-wrap .word, .wrap-row h5').forEach(
   });
 });
 
-/* Works */
+/* Projects */
 
-const horizontalSections = gsap.utils.toArray('section.horizontal')
+document.addEventListener('DOMContentLoaded', function() {
+  var cards = document.querySelectorAll('.card');
 
-horizontalSections.forEach(function (sec, i) {  
-  
-  var thisPinWrap = sec.querySelector('.pin-wrap');
-  var thisAnimWrap = thisPinWrap.querySelector('.animation-wrap');
-  
-  var getToValue = () => -(thisAnimWrap.scrollWidth - window.innerWidth); 
+  cards.forEach(function(card) {
+    card.addEventListener('mouseover', function() {
+      gsap.to(card, { '--pseudo-opacity': 1, duration: 0.5 });
+    });
 
-  gsap.fromTo(thisAnimWrap, { 
-    x: () => thisAnimWrap.classList.contains('to-right') ? 0 : getToValue() 
-  }, { 
-    x: () => thisAnimWrap.classList.contains('to-right') ? getToValue() : 0, 
-    ease: "none",
-    scrollTrigger: {
-      trigger: sec,   
-      scroller: scroller,
-      start: "top top",
-      end: () => "+=" + (thisAnimWrap.scrollWidth - window.innerWidth),
-      pin: thisPinWrap,
-      invalidateOnRefresh: true,
-      anticipatePin: 1,
-      scrub: true,
-    }
+    card.addEventListener('mouseout', function() {
+      gsap.to(card, { '--pseudo-opacity': 0, duration: 0.5 });
+    });
   });
-
-}); 
-
-ScrollTrigger.addEventListener("refresh", () => locomotiveScroll.update());
-
-ScrollTrigger.refresh();
+});
