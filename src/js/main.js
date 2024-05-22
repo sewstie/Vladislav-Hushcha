@@ -130,8 +130,8 @@ document.querySelectorAll('.about h3, .about-wrap .word, .wrap-row h5').forEach(
   gsap.from(elem, {
     scrollTrigger: {
       trigger: elem,
-      start: 'top bottom',
-      end: 'bottom bottom',
+      start: 'top-=150 bottom',
+      end: 'bottom-=100 bottom',
       scrub: true,
     },
     y: 100,
@@ -144,15 +144,49 @@ document.querySelectorAll('.about h3, .about-wrap .word, .wrap-row h5').forEach(
 /* Projects */
 
 document.addEventListener('DOMContentLoaded', function() {
+  var projectTitle = document.querySelector('.projects h3');
   var cards = document.querySelectorAll('.card');
 
+  gsap.from(projectTitle, {
+    scrollTrigger: {
+      trigger: projectTitle,
+      start: 'top bottom',
+      end: 'bottom bottom',
+      scrub: true,
+    },
+    y: 100,
+    opacity: 0,
+    duration: 1,
+    ease: 'circ',
+  });
+
   cards.forEach(function(card) {
-    card.addEventListener('mouseover', function() {
-      gsap.to(card, { '--pseudo-opacity': 1, duration: 0.5 });
+    gsap.from(card, {
+      scrollTrigger: {
+        trigger: card,
+        start: 'top-250 bottom',
+        end: 'bottom-=200 bottom',
+        scrub: true,
+      },
+      y: 100,
+      opacity: 0,
+      duration: 1,
+      ease: 'circ',
     });
 
-    card.addEventListener('mouseout', function() {
-      gsap.to(card, { '--pseudo-opacity': 0, duration: 0.5 });
+    var content = card.querySelector('.card-content');
+    var overlay = card.querySelector('.overlay');
+
+    card.addEventListener('mouseenter', function() {
+      gsap.to(card, { '--pseudo-opacity': 1, scale: 1.05, duration: 0.15 });
+      gsap.to(overlay, { opacity: 0.6, duration: 0.65 });
+      gsap.fromTo(content, { y: '100%' }, { y: '0%', opacity: 1, duration: 0.65 });
+    });
+
+    card.addEventListener('mouseleave', function() {
+      gsap.to(card, { '--pseudo-opacity': 0, scale: 1, duration: 0.15});
+      gsap.to(overlay, { opacity: 0, duration: 0.65 });
+      gsap.fromTo(content, { y: '0%' }, { y: '100%', opacity: 0, duration: 0.65 });
     });
   });
 });
