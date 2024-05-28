@@ -1,16 +1,41 @@
 @import url("../../public/css/reset.css");
 @import url("../../public/css/locomotive-scroll.css");
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @font-face {
-    font-family: 'urbane';
-    src: url('../../public/fonts/Urbane-Medium.woff')format("woff");
+    font-family: 'Roboto Bold Italic';
+    font-style: italic;
+    font-weight: 700;
+    src: local('Roboto Bold Italic'), url('../../public/fonts/Roboto-BoldItalic.woff') format('woff');
 }
 @font-face {
-    font-family: 'polt';
+    font-family: 'Roboto';
     font-style: normal;
-    font-weight: normal;
-    src: local('Polt Regular'), url('../../public/fonts/Polt-bold.woff') format('woff');
+    font-weight: 500;
+    src: local('Roboto'), url('../../public/fonts/Roboto-Medium.woff') format('woff');
+}
+@font-face {
+    font-family: 'Urbane';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Urbane'), url('../../public/fonts/Urbane-Medium.woff') format('woff');
+}
+@font-face {
+    font-family: 'Urbane Demi Bold';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Urbane Demi Bold'), url('../../public/fonts/Urbane-DemiBold.woff') format('woff');
+}
+@font-face {
+    font-family: 'Polt';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Polt'), url('../../public/fonts/Polt-Regular.woff') format('woff');
+}
+@font-face {
+    font-family: 'Polt Bold';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Polt Bold'), url('../../public/fonts/Polt-bold.woff') format('woff');
  }
 
 :root{
@@ -38,7 +63,7 @@ html {
 body{
     background-color: var(--bg-100);
     min-height: 100vh;
-    font-family: Roboto;    
+    font-family: 'Roboto';    
     color: #FFFFFF;
     font-weight: 500;
     font-style: normal;
@@ -60,10 +85,9 @@ body{
 body h3{
     position: relative;
 
+    font-family: 'Urbane';
     text-align: center;
-    font-family: "urbane";
     font-size: 3.5vw;
-    font-weight: 600;
 }
 
 body h3::after{
@@ -138,7 +162,7 @@ body h3::after{
     margin-top: 4vh;
     font-size: 8vw;
     transition: color 0.3s ease;
-    font-family: "urbane";
+    font-family: "Urbane";
 }
 
 
@@ -166,6 +190,7 @@ body h3::after{
     color: var(--accent-100);
     font-style: italic;
     font-weight: 700;
+    font-family: 'Roboto Bold Italic';
 
     padding: 0.55vw 0.89vw;
     background-color: #1010104d;
@@ -195,7 +220,7 @@ body h3::after{
 .header-wrap li a{
     font-size: 1.25vw;
     color: inherit;
-    font-family: "urbane";
+    font-family: 'Urbane';
     transition: all 0.5s;
 }
 
@@ -220,9 +245,9 @@ body h3::after{
     width: 37vw;
 
     color: #FFFFFF;
-    font-family: "urbane";
+    font-family: 'Urbane Demi Bold';
     font-size: 6.3vw;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .hero-text .word {
@@ -253,9 +278,9 @@ body h3::after{
 
 #about h5{
     margin-top: 5vh;
-    font-family: "polt";
+    font-family: "Polt Bold";
     font-size: 7vw;
-    font-weight: bold;
+    font-weight: 700;
     text-align: right;
 }
 
@@ -366,18 +391,15 @@ body h3::after{
 }
 
 .card-content h4{
-    font-family: 'polt';
     color: var(--accent-100);
     text-shadow: 1px 1px black;
     font-size: 3vw;
 }
 
 .card-content p{
-    font-family: 'polt';
     color: var(--text-100);
     text-shadow: 1px 1px black;
     font-size: 1vw;
-    font-weight: normal;
     width: 90%;
     text-align: center;
 }
@@ -415,7 +437,7 @@ body h3::after{
 .contact-wrap{
     font-size: 5.58vw;
     width: 50vw;
-    font-family: 'polt';
+    font-family: 'Polt';
     text-transform: uppercase;
     padding-top: 15vh;
     margin: 0 auto;
@@ -535,7 +557,6 @@ footer{
 .footer-contact h5{
     text-decoration: none;
     color: var(--accent-100);
-    font-family: 'polt';
     font-size: 1.25vw;
     transition: all 0.3s ease;
 }
@@ -544,4 +565,5 @@ footer{
 .footer-contact h5:hover{
     color: var(--text-100);
     transition: all 0.3s ease;
+    cursor: pointer;
 }
