@@ -12,6 +12,3 @@ This site showcases my projects, skills, and experience as a web developer. Expl
 ---
 
 © 2024 Vladislav Hushcha
-
-![GitHub followers](https://img.shields.io/github/followers/sewstie?style=social)
-![Twitter Follow](https://img.shields.io/twitter/follow/sewstie?style=social)
