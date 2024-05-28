@@ -154,11 +154,13 @@ body h3::after{
     width: 100%;
     z-index: 90;
 }
+
 .header-wrap{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .header-logo{
     font-size: 1.7vw;
     color: var(--accent-100);
@@ -170,6 +172,7 @@ body h3::after{
     backdrop-filter: blur(10px);
     border-radius: 8px;
 }
+
 .header-menu{
     display: flex;
     align-items: center;
@@ -179,13 +182,16 @@ body h3::after{
     backdrop-filter: blur(10px);
     border-radius: 8px;
 }
+
 .header-wrap a{
     text-decoration: none;
 }
+
 .header-wrap li{
     padding: 0.52vw 1.3vw 0.32vw;
     z-index: 1;
 }
+
 .header-wrap li a{
     font-size: 1.25vw;
     color: inherit;
@@ -305,6 +311,7 @@ body h3::after{
 }
   
 .card{
+    text-decoration: none;
     flex: 1 0 30%;
     margin: 1%;
     position: relative;
@@ -402,6 +409,136 @@ body h3::after{
 /*     contact     */
 
 .contact{
-    min-height: 100vh;
+    min-height: 90vh;
     margin-top: 10vh;
+}
+
+.contact-wrap{
+    font-size: 5.58vw;
+    width: 50vw;
+    font-family: 'polt';
+    text-transform: uppercase;
+    padding-top: 10vh;
+    margin: 0 auto;
+}
+
+.line{
+    display: flex;
+    justify-content: space-between;
+}
+
+.line:not(:last-child){
+    margin-bottom: 1.5vh;
+}
+
+.contact-wrap:has(.fancy:hover) .word:not(.fancy:hover){
+    opacity: 0.2;
+}
+
+.fancy{
+    text-decoration: none;
+    color: inherit;
+}
+
+.fancy > .letter{
+    display: inline-block;
+    transition: all 350ms ease;
+}
+
+.fancy:hover > .letter{
+    transition: all 800ms ease;
+}
+ 
+.fancy:hover > .letter:nth-child(1){
+    transform: translate(-35%, 30%) rotate(20deg);
+}
+
+.fancy:hover > .letter:nth-child(2){
+    transform: translate(-30%, -15%) rotate(-25deg);
+}
+
+.fancy:hover > .letter:nth-child(3){
+    transform: translate(-30%, 25%) rotate(15deg);
+}
+
+.fancy:hover > .letter:nth-child(4){
+    transform: translate(-15%, -10%) rotate(-5deg);
+}
+
+.fancy:hover > .letter:nth-child(5){
+    transform: translate(-5%, 10%) rotate(5deg);
+}
+
+.fancy:hover > .letter:nth-child(6){
+    transform: translate(-10%, -20%) rotate(-15deg);
+}
+
+.fancy:hover > .letter:nth-child(7){
+    transform: translate(10%, -15%) rotate(5deg);
+}
+
+.fancy:hover > .letter:nth-child(8){
+    transform: translate(15%, 20%) rotate(-10deg);
+}
+
+.fancy:hover > .letter:nth-child(9){
+    transform: translate(37%, -25%) rotate(3deg);
+}
+
+.fancy:hover > .letter:nth-child(10){
+    transform: translate(65%, 15%) rotate(-5deg);
+}
+
+.fancy:hover > .letter:nth-child(11){
+    transform: translate(140%, -15%) rotate(0deg);
+}
+
+.fancy:hover > .letter:nth-child(12){
+    transform: translate(70%, 20%) rotate(5deg);
+}
+
+.fancy:hover > .letter:nth-child(13){
+    transform: translate(85%, -15%) rotate(-5deg);
+}
+
+.fancy:hover > .letter:nth-child(14){
+    transform: translate(120%, -20%) rotate(0deg);
+}
+
+.fancy:hover > .letter:nth-child(15){
+    transform: translate(125%, 15%) rotate(-5deg);
+}
+
+/*     footer     */
+
+footer{
+    padding: 4vh 0 4vh 0;
+    
+    background-color: #1010104d;
+    backdrop-filter: blur(10px);
+}
+
+.footer-wrap{
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-contact{
+    display: flex;
+    gap: 2vw;
+}
+
+.footer-contact a,
+.footer-contact h5{
+    text-decoration: none;
+    color: var(--accent-100);
+    font-family: 'polt';
+    font-size: 1.25vw;
+    transition: all 0.3s ease;
+}
+
+.footer-contact a:hover,
+.footer-contact h5:hover{
+    color: var(--text-100);
+    transition: all 0.3s ease;
 }

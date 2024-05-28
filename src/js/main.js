@@ -130,8 +130,8 @@ document.querySelectorAll('.about h3, .about-wrap .word, .wrap-row h5').forEach(
   gsap.from(elem, {
     scrollTrigger: {
       trigger: elem,
-      start: 'top-=150 bottom',
-      end: 'bottom-=100 bottom',
+      start: 'top-=75 bottom',
+      end: 'bottom-=50 bottom',
       scrub: true,
     },
     y: 100,
@@ -164,8 +164,8 @@ document.addEventListener('DOMContentLoaded', function() {
     gsap.from(card, {
       scrollTrigger: {
         trigger: card,
-        start: 'top-250 bottom',
-        end: 'bottom-=200 bottom',
+        start: 'top-=250 bottom+=100',
+        end: 'bottom bottom+=150',
         scrub: true,
       },
       y: 100,
@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var overlay = card.querySelector('.overlay');
 
     card.addEventListener('mouseenter', function() {
-      gsap.to(card, { '--pseudo-opacity': 1, scale: 1.05, duration: 0.15 });
+      gsap.to(card, { '--pseudo-opacity': 1, scale: 1.05, duration: 0.15});
       gsap.to(overlay, { opacity: 0.6, duration: 0.65 });
       gsap.fromTo(content, { y: '100%' }, { y: '0%', opacity: 1, duration: 0.65 });
     });
@@ -190,3 +190,39 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+/* Contact */
+
+function wrapLettersInSpans() {
+  const elements = document.querySelectorAll('#word');
+
+  elements.forEach(element => {
+    let text = element.textContent;
+    let html = '';
+
+    for (let i = 0; i < text.length; i++) {
+      html += `<span class="letter">${text[i]}</span>`;
+    }
+
+    element.innerHTML = html;
+  });
+}
+
+wrapLettersInSpans();
+
+document.querySelectorAll('.contact h3, .line').forEach((elem) => {
+  gsap.from(elem, {
+    scrollTrigger: {
+      trigger: elem,
+      start: 'top bottom+=75',
+      end: 'bottom bottom',
+      scrub: true,
+    },
+    y: 100,
+    opacity: 0,
+    duration: 1,
+    ease: 'circ',
+  });
+});
+
+/* Footer */
