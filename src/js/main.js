@@ -84,7 +84,7 @@ anchorLinks.forEach((anchorLink) => {
       e.preventDefault();
       e.stopPropagation();
 
-      locomotiveScroll.scrollTo(target, { offset: -145 })
+      locomotiveScroll.scrollTo(target, { offset: -50 })
   });
 });
 
@@ -101,7 +101,7 @@ document.body.onpointermove = (event) => {
 
 ScrollTrigger.create({
   trigger: '.about',
-  start: 'top top+=180',
+  start: 'top top+=120',
   onEnter: () => {
     gsap.fromTo(blob, { display: 'block', x: '-100%', opacity: 0 }, { x: '0', opacity: 0.66, duration: 2 });
   },
@@ -224,5 +224,3 @@ document.querySelectorAll('.contact h3, .line').forEach((elem) => {
     ease: 'circ',
   });
 });
-
-/* Footer */
