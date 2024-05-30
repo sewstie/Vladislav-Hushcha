@@ -1,3 +1,28 @@
-@media (min-height: 1000px){
-    section{min-height: 40vh;}
+/*    section      */
+
+@media (max-width: 1700px) and (max-height: 2000px) {
+    section {
+        min-height: 90vh;
+    }
 }
+
+@media (max-width: 1420px) and (max-height: 2000px) {
+    section {
+        min-height: 40vh;
+    }
+}
+
+@media (max-width: 800px) and (max-height: 2000px) {
+    section {
+        min-height: 33vh;
+    }
+}
+
+@media (max-width: 600px) and (max-height: 2000px) {
+    section {
+        min-height: 25vh;
+    }
+}
+
+/*     tablet     */
+

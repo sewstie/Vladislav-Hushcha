@@ -47,6 +47,9 @@
 --bg-200:#151c20;
 --bg-300:#2b3337;
 }
+.has-scroll-smooth body{
+    overflow: hidden;
+}
 
 html {
     cursor: default;
