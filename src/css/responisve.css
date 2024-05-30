@@ -1,26 +1,44 @@
 /*    section      */
 
-@media (max-width: 1700px) and (max-height: 2000px) {
+@media (max-width: 1700px) and (min-height: 1000px) {
     section {
         min-height: 90vh;
     }
 }
 
-@media (max-width: 1420px) and (max-height: 2000px) {
+@media (max-width: 1420px) and (min-height: 1000px) {
     section {
         min-height: 40vh;
     }
 }
 
-@media (max-width: 800px) and (max-height: 2000px) {
+@media (max-width: 800px) and (min-height: 1000px) {
     section {
         min-height: 33vh;
     }
 }
 
-@media (max-width: 600px) and (max-height: 2000px) {
+@media (max-width: 600px) and (min-height: 1000px) {
     section {
         min-height: 25vh;
+    }
+}
+
+@media (max-width: 1420px) and (min-height: 600px) {
+    section {
+        min-height: 60vh;
+    }
+}
+
+@media (max-width: 800px) and (min-height: 600px) {
+    section {
+        min-height: 50vh;
+    }
+}
+
+@media (max-width: 600px) and (min-height: 600px) {
+    section {
+        min-height: 45vh;
     }
 }
 
