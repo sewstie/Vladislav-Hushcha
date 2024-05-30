@@ -1,0 +1,4 @@
+@import url("../../public/css/reset.css");
+@import url("../../public/css/locomotive-scroll.css");
+@import url('./style.css');
+@import url('./responisve.css');

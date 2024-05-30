@@ -55,8 +55,11 @@ ScrollTrigger.defaults({
 const locomotiveScroll = new LocomotiveScroll({
   el: scroller,
   smooth: true,
-  multiplier: 1.0,
+  getSpeed: true,
   getDirection: true,
+  useKeyboard: true,
+  inertia: 0.75,
+  smoothMobile: true,
 });
 locomotiveScroll.on('scroll', (instance) => {
   ScrollTrigger.update();
@@ -88,6 +91,8 @@ anchorLinks.forEach((anchorLink) => {
   });
 });
 
+locomotiveScroll.update();
+
 /* Blob */
 
 const blob = document.getElementById('blob');
@@ -101,7 +106,7 @@ document.body.onpointermove = (event) => {
 
 ScrollTrigger.create({
   trigger: '.about',
-  start: 'top top+=120',
+  start: 'top top+=140',
   onEnter: () => {
     gsap.fromTo(blob, { display: 'block', x: '-100%', opacity: 0 }, { x: '0', opacity: 0.66, duration: 2 });
   },
