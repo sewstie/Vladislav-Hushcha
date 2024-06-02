@@ -94,13 +94,13 @@ body h3{
 body h3::after{
     position: absolute;
     content: '';
-    border-bottom: 18px solid var(--accent-100);
-    width: 150px;
+    border-bottom: 1.5vh solid var(--accent-100);
+    width: 8vw;
     display: block;
     margin: 0 auto;
     position: relative;
     left: 30px;
-    top: -15px;
+    top: -1.5vh;
     z-index: -1;
 }
 
@@ -113,7 +113,7 @@ section{
 #blob{
     display: none;
     background: linear-gradient( var(--accent-100) 0%, var(--accent-200) 100% );
-    height: 300px;
+    height: 33vh;
     aspect-ratio: 1;
     position: absolute;
     left: 50%;
@@ -121,7 +121,7 @@ section{
     translate: -50% -50%;
     border-radius: 50%;
     filter: blur(125px);
-    z-index: -2;
+    z-index: -3;
     animation: rotate 20s infinite;
 }
 
@@ -188,6 +188,7 @@ section{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .header-logo{
@@ -218,6 +219,7 @@ section{
 }
 
 .header-wrap li{
+    text-align: center;
     padding: 0.52vw 1.3vw 0.32vw;
     z-index: 1;
 }
@@ -229,10 +231,38 @@ section{
     transition: all 0.5s;
 }
 
-.header-wrap li a:hover{
-    color: var(--accent-100);
-    transition: all 0.5s;
+@media (hover:hover){
+    .header-wrap li a:hover{
+        color: var(--accent-100);
+        transition: all 0.5s;
+    }
 }
+
+.header-btn{
+    display: none;
+    position: relative;
+
+    margin-right: 1.3vw;
+    cursor: pointer;
+    text-align: center;
+    font-size: 2vw;
+    text-transform: uppercase;
+    color: inherit;
+    font-family: 'Urbane';
+}
+
+.header-btn.active{
+    color: var(--accent-100);
+}
+
+.header-menu-mobile {
+    opacity: 0;
+    display: none;
+
+    position: absolute;
+    top: 70%;
+    right: 0;
+  }
 
 /*    hero     */
 
@@ -243,7 +273,6 @@ section{
 .hero-text {
     position: absolute;
     top: 15vh;
-    width: 37vw;
 }
 .hero-text p {
     width: 37vw;
@@ -260,7 +289,7 @@ section{
 
 .cursor {
     animation: blink 1s infinite;
-    font-size: 80px;
+    font-size: 6.3vw;
   }
   
   @keyframes blink {
@@ -358,7 +387,7 @@ section{
     position: absolute;
     opacity: 1;
     width: 250%;
-    height: 240px;
+    height: 30vh;
     background: linear-gradient(var(--accent-100), var(--accent-200));
     animation: card 4s linear infinite;
     opacity: var(--pseudo-opacity);
@@ -454,13 +483,14 @@ section{
     margin-bottom: 1.5vh;
 }
 
-.contact-wrap:has(.fancy:hover) .word:not(.fancy:hover){
-    opacity: 0.2;
-}
-
 .fancy{
     text-decoration: none;
     color: inherit;
+}
+
+@media (hover:hover){
+.contact-wrap:has(.fancy:hover) .word:not(.fancy:hover){
+    opacity: 0.2;
 }
 
 .fancy > .letter{
@@ -531,13 +561,16 @@ section{
 .fancy:hover > .letter:nth-child(15){
     transform: translate(125%, 15%) rotate(-5deg);
 }
+}
 
 /*     footer     */
 
 footer{
     padding: 4vh 0 4vh 0;
     
+    position: relative;
     background-color: #1010104d;
+    z-index: -2;
     backdrop-filter: blur(10px);
 }
 
@@ -549,17 +582,18 @@ footer{
 .footer-contact{
     display: flex;
     gap: 2vw;
+    align-items: center;
 }
 
 .footer-wrap p{
-    font-size: 2vh
+    font-size: 2vh;
 }
 
 .footer-contact a,
 .footer-contact h5{
     text-decoration: none;
     color: var(--accent-100);
-    font-size: 1.25vw;
+    font-size: 1.5vw;
     transition: all 0.3s ease;
 }
 

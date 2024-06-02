@@ -1,9 +1,12 @@
 /* hero 3d-object */
 
 import { Application } from 'https://cdn.skypack.dev/@splinetool/runtime';
-const canvas = document.getElementById('canvas3d');
-const app = new Application(canvas);
-app.load('https://prod.spline.design/eL7BJfHITeWpXVau/scene.splinecode');
+
+if (window.innerWidth >= 600) {
+    const canvas = document.getElementById('canvas3d');
+    const app = new Application(canvas);
+    app.load('https://prod.spline.design/eL7BJfHITeWpXVau/scene.splinecode');
+}
 
 /* Loading screen */
 
@@ -55,11 +58,14 @@ ScrollTrigger.defaults({
 const locomotiveScroll = new LocomotiveScroll({
   el: scroller,
   smooth: true,
-  getSpeed: true,
+  multiplier: 1.0,
   getDirection: true,
-  useKeyboard: true,
-  inertia: 0.75,
-  smoothMobile: true,
+  smartphone: {
+      smooth: true,
+  },
+  tablet: {
+      smooth: true,
+  },
 });
 locomotiveScroll.on('scroll', (instance) => {
   ScrollTrigger.update();
@@ -86,15 +92,36 @@ anchorLinks.forEach((anchorLink) => {
   anchorLink.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
-
       locomotiveScroll.scrollTo(target, { offset: -50 })
   });
 });
 
 locomotiveScroll.update();
 
+if (window.innerWidth <= 1024){
+  const headerBtn = document.querySelector('.header-btn');
+  const headerMenu = document.querySelector('.header-menu-mobile');
+  
+  headerBtn.addEventListener('click', () => {
+    if (headerMenu.style.display === 'none' || headerMenu.style.display === '') {
+        headerMenu.style.display = 'block';
+        headerBtn.textContent = 'close';
+        headerBtn.classList.add('active');
+        gsap.fromTo(headerMenu, {opacity: 0, y: -20}, {opacity: 1, y: 0, duration: 0.33});
+    } else {
+            headerBtn.textContent = 'Menu';
+            headerBtn.classList.remove('active');
+        gsap.fromTo(headerMenu, {opacity: 1, y: 0}, {opacity: 0, y: -20, duration: 0.33, onComplete: () => {
+            headerMenu.style.display = 'none';
+        }});
+    }
+  });
+}
+
 /* Blob */
 
+if (window.matchMedia("(hover: hover)").matches){
+  
 const blob = document.getElementById('blob');
 document.body.onpointermove = (event) => {
   const { clientX, clientY } = event;
@@ -115,19 +142,23 @@ ScrollTrigger.create({
   },
 });
 
+}
+
 /* About */
 
-document.querySelectorAll('#about .wrap-row h5').forEach((item) => {
-  item.addEventListener('mouseover', function() {
-    document.querySelector('#about').classList.add('child-hover');
-    gsap.fromTo(this.nextElementSibling, { opacity: 0, y: 50 }, { display: "block", opacity: 1, y: 0, duration: 0.5 });
+if (window.matchMedia("(hover: hover)").matches){
+  document.querySelectorAll('#about .wrap-row h5').forEach((item) => {
+    item.addEventListener('mouseover', function() {
+      document.querySelector('#about').classList.add('child-hover');
+      gsap.fromTo(this.nextElementSibling, { opacity: 0, y: 50 }, { display: "block", opacity: 1, y: 0, duration: 0.5 });
+    });
+  
+    item.addEventListener('mouseout', function() {
+      document.querySelector('#about').classList.remove('child-hover');
+      gsap.to(this.nextElementSibling, { display: "none", opacity: 0, y: 50, duration: 0.5 });
+    });
   });
-
-  item.addEventListener('mouseout', function() {
-    document.querySelector('#about').classList.remove('child-hover');
-    gsap.to(this.nextElementSibling, { display: "none", opacity: 0, y: 50, duration: 0.5 });
-  });
-});
+}
 
 /* About GSAP */
 
@@ -179,6 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
       ease: 'circ',
     });
 
+    if (window.matchMedia("(hover: hover)").matches){
     var content = card.querySelector('.card-content');
     var overlay = card.querySelector('.overlay');
 
@@ -193,6 +225,7 @@ document.addEventListener('DOMContentLoaded', function() {
       gsap.to(overlay, { opacity: 0, duration: 0.65 });
       gsap.fromTo(content, { y: '0%' }, { y: '100%', opacity: 0, duration: 0.65 });
     });
+    }
   });
 });
 

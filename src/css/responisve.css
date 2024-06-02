@@ -1,46 +1,79 @@
 /*    section      */
 
-@media (max-width: 1700px) and (min-height: 1000px) {
+@media (max-width: 1700px) and (min-height: 600px) {
     section {
-        min-height: 90vh;
-    }
-}
-
-@media (max-width: 1420px) and (min-height: 1000px) {
-    section {
-        min-height: 40vh;
-    }
-}
-
-@media (max-width: 800px) and (min-height: 1000px) {
-    section {
-        min-height: 33vh;
-    }
-}
-
-@media (max-width: 600px) and (min-height: 1000px) {
-    section {
-        min-height: 25vh;
+        min-height: 92vh;
     }
 }
 
 @media (max-width: 1420px) and (min-height: 600px) {
     section {
-        min-height: 60vh;
-    }
-}
-
-@media (max-width: 800px) and (min-height: 600px) {
-    section {
-        min-height: 50vh;
-    }
-}
-
-@media (max-width: 600px) and (min-height: 600px) {
-    section {
         min-height: 45vh;
     }
 }
 
-/*     tablet     */
+@media (max-width: 1024px) and (min-height: 600px) {
+    section {
+        min-height:44vh;
+    }
+}
+
+@media (max-width: 880px) and (min-height: 600px) {
+    section {
+        min-height:39vh;
+    }
+}
+
+@media (max-width: 700px) and (min-height: 600px) {
+    section {
+        min-height:42vh;
+    }
+}
+
+/*   not hover  */
+
+@media (hover: none){
+    .blob{display: none;}
+    .blur{display: none;}
+    .overlay{opacity: 0.5; height: 38%; top: initial; bottom: 0; border-radius: 0;}
+    .card-content{opacity: 1; position: absolute; bottom: 13%;}
+    #about.child-hover .wrap-row:not(:hover) h5{filter: none; transition: none;}
+    #about .wrap-row h5:hover{opacity: inherit; color: inherit; transition: none;}
+    #about .wrap-row h5:hover + p{transition: none;}
+    #about p{display: block; color: var(--accent-200); text-align: center;}
+    .about-wrap .wrap-row:nth-child(3) p,
+    .about-wrap .wrap-row:nth-child(5) p {margin-left: 10vw;}
+}
+
+/*  tablets */
+
+@media (max-width: 1024px) {
+    .header-wrap li a{font-size: 1.55vw;}
+    .header-btn{display: block;}
+    .header-menu{display: none;}
+    .header{background-color: #1010104d; backdrop-filter: blur(10px); padding: 0 0;}
+    .header-wrap{padding: 3vh 0 3vh 0;}
+    .header-logo{font-size: 2.8vw; padding: 0; background-color: transparent; backdrop-filter: none; border-radius: 0;}
+    .projects-wrap{margin-top: 5vh;}
+    .hero{margin-top: 1vh;}
+    .hero-text{top: 10.5vh;}
+    .hero-text p{width: 40vw;}
+    #about p{font-size: 1.6vw;}
+    .about{margin-top: 3vh;}
+    .contact{margin-bottom: 5vh;}
+    .card{height: 27vh;}
+    .card::before{height: 20vh;}
+    .contact{margin-top: 7vh;}
+    .contact-wrap{padding-top: 5vh;}
+    footer{padding: 2vh 0 2vh 0;}
+    .card h5{font-size: 2vw;}
+    .card p{font-size: 1.2vw;}
+}
+
+/*  smartphones*/
+
+@media (max-width: 600) {
+    #canvas3d{display: none;}
+}
+
 
