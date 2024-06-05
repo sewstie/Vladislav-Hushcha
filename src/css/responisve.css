@@ -7,17 +7,7 @@
 
 /*   not hover  */
 
-@media (min-width: 1025px) and (hover: none){
-    .overlay{height: 50%;}
-    .card-content{ bottom: 14%;}
-}
-
-@media (max-width: 1024px) and (hover: none){
-    .overlay{height: 38%;}
-    .card-content{bottom: 13%;}
-}
-
-@media (hover: none){
+@media (hover: none), (max-width: 1024px){
     .blob{display: none;}
     .blur{display: none;}
     .overlay{opacity: 0.5; top: initial; bottom: 0; border-radius: 0;}
@@ -33,6 +23,7 @@
 /*  tablets */
 
 @media (max-width: 1024px) {
+    .loader-percentage{font-size: 12vw;}
     .header-wrap li a{font-size: 1.55vw;}
     .header-btn{display: block;}
     .header-menu{display: none;}
@@ -41,24 +32,44 @@
     .header-logo{font-size: 2.8vw; padding: 0; background-color: transparent; backdrop-filter: none; border-radius: 0;}
     .projects-wrap{margin-top: 5vh;}
     .hero{margin-top: 1vh;}
-    .hero-text{top: 10.5vh;}
+    @media (max-width: 1024px){.hero-text{top: 10.5vh;}}
+    @media (max-width: 808px){.hero-text{top: 8vh;}}
     .hero-text p{width: 40vw;}
     #about p{font-size: 1.6vw;}
     .about{margin-top: 3vh;}
-    .contact{margin-bottom: 5vh;}
-    .card{height: 27vh;}
-    .card::before{height: 20vh;}
-    .contact{margin-top: 7vh;}
+    .card{height: 27vh; --pseudo-opacity: 1;}
+    .card::before{animation: none;}
+    .card:after{inset: 2.5px;}
+    .contact{margin: 7vh 0 5vh 0;}
     .contact-wrap{padding-top: 5vh;}
     footer{padding: 2vh 0 2vh 0;}
-    .card h5{font-size: 2vw;}
-    .card p{font-size: 1.2vw;}
+    .card h4{font-size: 2.5vw;}
+    .card p{font-size: 1.5vw;}
 }
 
 /*  smartphones*/
 
-@media (max-width: 600) {
-    #canvas3d{display: none;}
+@media (max-width: 600px) {
+    body h3{font-size: 4vw;}
+    body h3::after{top: -0.7vh; border-bottom: 0.85vh solid var(--accent-100); left: 22px;}
+    .projects h3::after, .contact h3::after{left: 35px;}
+    .hero{height: 17vh;}
+    .hero{margin: 6vh 0 6vh 0;}
+    .hero-text{position: static;}
+    .hero-text p{width: 70%; text-align: center; margin: 0 auto; font-size: 8vw;}
+    .canvas{display: none;}
+    #about h5{font-size: 8vw;}
+    #about p{font-size: 1.8vw;}
+    .projects{margin-top: 5vh;}
+    .projects-wrap{margin-top: 2vh; flex-direction: column; align-items: center; gap: 2vh;}
+    .card{flex: none; width: 60vw; height: 20vh;}
+    .card:nth-child(5), .card:nth-child(6){display: none;}
+    .card h4{font-size: 4.5vw;}
+    .card p{font-size: 2vw;}
+    .contact{margin: 4vh 0 4vh 0;}
+    .contact-wrap{font-size: 8vw; width: 66vw;}
+    .footer-contact a, .footer-contact h5{ font-size: 2vw;}
+    .footer-wrap p{font-size: 2.5vw;}
 }
 
 

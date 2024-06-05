@@ -586,14 +586,14 @@ footer{
 }
 
 .footer-wrap p{
-    font-size: 1.5vw;
+    font-size: 1.8vw;
 }
 
 .footer-contact a,
 .footer-contact h5{
     text-decoration: none;
     color: var(--accent-100);
-    font-size: 1vw;
+    font-size: 1.3vw;
     transition: all 0.3s ease;
 }
 
