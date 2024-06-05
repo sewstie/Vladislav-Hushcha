@@ -21,6 +21,7 @@ window.addEventListener('load', () => {
   let width = 0;
   const interval = setInterval(() => {
       if (width >= 100) {
+          locomotiveScroll.update()
           clearInterval(interval);
           gsap.to(loader, {
             opacity: 0,

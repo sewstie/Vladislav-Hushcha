@@ -1,42 +1,27 @@
 /*    section      */
 
-@media (max-width: 1700px) and (min-height: 600px) {
-    section {
-        min-height: 92vh;
-    }
-}
-
-@media (max-width: 1420px) and (min-height: 600px) {
-    section {
-        min-height: 45vh;
-    }
-}
-
-@media (max-width: 1024px) and (min-height: 600px) {
-    section {
-        min-height:44vh;
-    }
-}
-
-@media (max-width: 880px) and (min-height: 600px) {
-    section {
-        min-height:39vh;
-    }
-}
-
-@media (max-width: 700px) and (min-height: 600px) {
-    section {
-        min-height:42vh;
-    }
+@media (max-width: 1920px){
+    section {min-height: auto;}
+    .contact{ margin: 7vh 0 7vh 0;}
 }
 
 /*   not hover  */
 
+@media (min-width: 1025px) and (hover: none){
+    .overlay{height: 50%;}
+    .card-content{ bottom: 14%;}
+}
+
+@media (max-width: 1024px) and (hover: none){
+    .overlay{height: 38%;}
+    .card-content{bottom: 13%;}
+}
+
 @media (hover: none){
     .blob{display: none;}
     .blur{display: none;}
-    .overlay{opacity: 0.5; height: 38%; top: initial; bottom: 0; border-radius: 0;}
-    .card-content{opacity: 1; position: absolute; bottom: 13%;}
+    .overlay{opacity: 0.5; top: initial; bottom: 0; border-radius: 0;}
+    .card-content{opacity: 1; position: absolute;}
     #about.child-hover .wrap-row:not(:hover) h5{filter: none; transition: none;}
     #about .wrap-row h5:hover{opacity: inherit; color: inherit; transition: none;}
     #about .wrap-row h5:hover + p{transition: none;}

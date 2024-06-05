@@ -570,7 +570,7 @@ footer{
     
     position: relative;
     background-color: #1010104d;
-    z-index: -2;
+    z-index: 90;
     backdrop-filter: blur(10px);
 }
 
@@ -586,20 +586,22 @@ footer{
 }
 
 .footer-wrap p{
-    font-size: 2vh;
+    font-size: 1.5vw;
 }
 
 .footer-contact a,
 .footer-contact h5{
     text-decoration: none;
     color: var(--accent-100);
-    font-size: 1.5vw;
+    font-size: 1vw;
     transition: all 0.3s ease;
 }
 
-.footer-contact a:hover,
-.footer-contact h5:hover{
-    color: var(--text-100);
-    transition: all 0.3s ease;
-    cursor: pointer;
+@media(hover:hover){
+    .footer-contact a:hover,
+    .footer-contact h5:hover{
+        color: var(--text-100);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
 }
