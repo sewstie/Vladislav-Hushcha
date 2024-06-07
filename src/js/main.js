@@ -61,12 +61,6 @@ const locomotiveScroll = new LocomotiveScroll({
   smooth: true,
   multiplier: 1.0,
   getDirection: true,
-  smartphone: {
-      smooth: true,
-  },
-  tablet: {
-      smooth: true,
-  },
 });
 locomotiveScroll.on('scroll', (instance) => {
   ScrollTrigger.update();
@@ -96,8 +90,6 @@ anchorLinks.forEach((anchorLink) => {
       locomotiveScroll.scrollTo(target, { offset: -50 })
   });
 });
-
-locomotiveScroll.update();
 
 if (window.innerWidth <= 1024){
   const headerBtn = document.querySelector('.header-btn');
