@@ -2,6 +2,7 @@
 
 @media (max-width: 1920px){
     section {min-height: auto;}
+    .hero{min-height: auto;}
     .contact{ margin: 7vh 0 7vh 0;}
 }
 
@@ -15,7 +16,7 @@
     #about.child-hover .wrap-row:not(:hover) h5{filter: none; transition: none;}
     #about .wrap-row h5:hover{opacity: inherit; color: inherit; transition: none;}
     #about .wrap-row h5:hover + p{transition: none;}
-    #about p{display: block; color: var(--accent-200); text-align: center;}
+    #about p{display: block; color: var(--accent-200); text-align: left;}
     .about-wrap .wrap-row:nth-child(3) p,
     .about-wrap .wrap-row:nth-child(5) p {margin-left: 10vw;}
 }
@@ -24,6 +25,7 @@
 
 @media (max-width: 1024px) {
     .container{padding: 0 20px;}
+    body h3{font-size: 3rem;}
     .loader-percentage{font-size: 12vw;}
     .header-wrap li a{font-size: 1.55vw;}
     .header-btn{display: block;}
@@ -32,13 +34,17 @@
     .header-wrap{padding: 3vh 0 3vh 0;}
     .header-logo{font-size: 2.8vw; padding: 0; background-color: transparent; backdrop-filter: none; border-radius: 0;}
     .projects-wrap{margin-top: 5vh;}
-    .hero{margin-top: 1vh;}
-    @media (max-width: 1024px){.hero-text{top: 10.5vh;}}
-    @media (max-width: 808px){.hero-text{top: 8vh;}}
-    .hero-text p{width: 40vw;}
-    #about p{font-size: 1.6vw;}
+    .hero{margin-top: 1vh; padding-bottom: 9vh;}
+    .hero-text{top: 5vh;}
+    .hero-text p{width: 40vw; font-size: 8.5vw;}
+    #about .wrap-row{flex-direction: column;}
+    #about h5{font-size: 6.1rem; margin-left: auto;}
+    #about .wrap-row h5{padding: 3.35vh 0 3.35vh 0;}
+    .about-wrap{display: flex; flex-direction: column; justify-content: center; margin: auto 0;}
+    #about p{font-size: 1.2rem; width: 50%; margin-right: auto;}
     .about{margin-top: 3vh;}
-    .card{height: 27vh; --pseudo-opacity: 1;}
+    .about-wrap .word{padding-bottom: 3.35vh;}
+    .card{height: 27vh; --pseudo-opacity: 0.5;}
     .card::before{animation: none;}
     .card:after{inset: 2.5px;}
     .contact{margin: 7vh 0 5vh 0;}
@@ -51,16 +57,16 @@
 /*  smartphones*/
 
 @media (max-width: 600px) {
-    body h3{font-size: 4vw;}
+    body h3{font-size: 1.5rem;}
     body h3::after{top: -0.7vh; border-bottom: 0.85vh solid var(--accent-100); left: 22px;}
     .projects h3::after, .contact h3::after{left: 35px;}
     .hero{height: 17vh;}
     .hero{margin: 6vh 0 6vh 0;}
     .hero-text{position: static;}
-    .hero-text p{width: 70%; text-align: center; margin: 0 auto; font-size: 8vw;}
+    .hero-text p{width: 100%; text-align: center; margin: 0 auto; font-size: 2.75rem;}
     .canvas{display: none;}
-    #about h5{font-size: 8vw;}
-    #about p{font-size: 1.8vw;}
+    #about h5{font-size: 3.5rem;}
+    #about p{font-size: 0.65rem; width: 66%;}
     .projects{margin-top: 5vh;}
     .projects-wrap{margin-top: 2vh; flex-direction: column; align-items: center; gap: 2vh;}
     .card{flex: none; width: 60vw; height: 20vh;}

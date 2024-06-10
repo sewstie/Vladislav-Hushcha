@@ -325,8 +325,7 @@ section{
 }
 
 #about .wrap-row h5{
-    padding-top: 1.35vh;
-    padding-bottom: 1.35vh;
+    padding: 1.35vh 0 1.35vh 0;
     margin-top: 0;
     transition: 0.5s ease-in-out;
 }

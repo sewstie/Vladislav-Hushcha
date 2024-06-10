@@ -57,10 +57,16 @@ ScrollTrigger.defaults({
   markers: false
 });
 const locomotiveScroll = new LocomotiveScroll({
-  el: scroller,
+  el: scroller,    
   smooth: true,
   multiplier: 1.0,
   getDirection: true,
+  smartphone: {
+      smooth: true,
+  },
+  tablet: {
+      smooth: true,
+  },
 });
 locomotiveScroll.on('scroll', (instance) => {
   ScrollTrigger.update();
