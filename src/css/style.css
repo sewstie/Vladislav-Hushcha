@@ -245,7 +245,7 @@ section{
     margin-right: 1.3vw;
     cursor: pointer;
     text-align: center;
-    font-size: 2vw;
+    font-size: 0.88rem;
     text-transform: uppercase;
     color: inherit;
     font-family: 'Urbane';
@@ -262,6 +262,7 @@ section{
     position: absolute;
     top: 70%;
     right: 0;
+    z-index: 99;
   }
 
 /*    hero     */

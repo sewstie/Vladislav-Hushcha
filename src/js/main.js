@@ -119,7 +119,7 @@ if (window.innerWidth <= 1024){
 
 /* Blob */
 
-if (window.matchMedia("(hover: hover)").matches){
+if (window.matchMedia("(hover: hover)").matches || window.innerWidth > 600) {
   
 const blob = document.getElementById('blob');
 document.body.onpointermove = (event) => {
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
       ease: 'circ',
     });
 
-    if (window.matchMedia("(hover: hover)").matches){
+    if (window.matchMedia("(hover: hover)").matches || window.innerWidth < 1024){
     var content = card.querySelector('.card-content');
     var overlay = card.querySelector('.overlay');
 
