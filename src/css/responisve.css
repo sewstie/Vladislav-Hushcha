@@ -8,7 +8,7 @@
 
 /*   not hover  */
 
-@media (hover: none), (max-width: 1024px){
+@media (max-width: 1024px){
     .blur{display: none;}
     .overlay{opacity: 0.5; top: initial; bottom: 0; border-radius: 0;}
     .card-content{opacity: 1; position: absolute;}
@@ -57,9 +57,11 @@
 /*  smartphones*/
 
 @media (max-width: 600px) {
-    body h3{font-size: 1.5rem;}
+    body h3{font-size: 1.5rem; 
+        max-width: 100%;
+        overflow-x: hidden;}
     body h3::after{top: -0.7vh; border-bottom: 0.85vh solid var(--accent-100); left: 22px;}
-    .blob{}
+    #blob{display: block;}
     .projects h3::after, .contact h3::after{left: 35px;}
     .hero{margin: 8vh 0 6vh 0;}
     .hero-text{position: static;}

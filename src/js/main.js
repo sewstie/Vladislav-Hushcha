@@ -119,7 +119,7 @@ if (window.innerWidth <= 1024){
 
 /* Blob */
 
-if (window.matchMedia("(hover: hover)").matches || window.innerWidth > 600) {
+if (window.innerWidth > 1024 || window.innerWidth < 600) {
   
 const blob = document.getElementById('blob');
 document.body.onpointermove = (event) => {
@@ -130,22 +130,24 @@ document.body.onpointermove = (event) => {
   }, { duration: 3000, fill: 'forwards' });
 }
 
-ScrollTrigger.create({
-  trigger: '.about',
-  start: 'top top+=140',
-  onEnter: () => {
-    gsap.fromTo(blob, { display: 'block', x: '-100%', opacity: 0 }, { x: '0', opacity: 0.66, duration: 2 });
-  },
-  onLeaveBack: () => {
-    gsap.fromTo(blob, { x: '-%', opacity: 0.66 }, { x: '100%', opacity: 0, duration: 1, display: 'none' });
-  },
-});
+if (window.innerWidth > 1024) {
+  ScrollTrigger.create({
+    trigger: '.about',
+    start: 'top top+=140',
+    onEnter: () => {
+      gsap.fromTo(blob, { display: 'block', x: '-100%', opacity: 0 }, { x: '0', opacity: 0.66, duration: 2 });
+    },
+    onLeaveBack: () => {
+      gsap.fromTo(blob, { x: '-%', opacity: 0.66 }, { x: '100%', opacity: 0, duration: 1, display: 'none' });
+    },
+  });
+}
 
 }
 
 /* About */
 
-if (window.matchMedia("(hover: hover)").matches){
+if (window.innerWidth > 1024){
   document.querySelectorAll('#about .wrap-row h5').forEach((item) => {
     item.addEventListener('mouseover', function() {
       document.querySelector('#about').classList.add('child-hover');
@@ -209,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function() {
       ease: 'circ',
     });
 
-    if (window.matchMedia("(hover: hover)").matches || window.innerWidth < 1024){
+    if (window.innerWidth > 1024){
     var content = card.querySelector('.card-content');
     var overlay = card.querySelector('.overlay');
 
