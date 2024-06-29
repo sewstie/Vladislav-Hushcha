@@ -78,7 +78,6 @@
     .contact{margin: 4vh 0 4vh 0;}
     .contact-wrap{font-size: 10vw; width: 87vw;}
 
-    footer{padding: 1vh 0 0 0;}
     .footer-wrap{flex-direction: column; justify-content: center; align-items: center; gap: 1.5vh;}
     .footer-contact a, .footer-contact h5{ font-size: 4vw;}
     .footer-wrap p{font-size: 4.5vw;}
