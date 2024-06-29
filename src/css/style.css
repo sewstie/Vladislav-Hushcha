@@ -262,6 +262,11 @@ section{
     position: absolute;
     top: 70%;
     right: 0;
+    overflow: hidden;
+    border-radius: 5px;
+    padding-bottom: 1.5vh;
+    
+    overflow: hidden;
     z-index: 99;
   }
 
@@ -571,8 +576,8 @@ footer{
     
     position: relative;
     background-color: #1010104d;
-    z-index: 90;
     backdrop-filter: blur(10px);
+    z-index: 90;
 }
 
 .footer-wrap{
