@@ -12,13 +12,13 @@
     .container{padding: 0 20px;}
     body h3{font-size: 5vw;}
     .loader-percentage{font-size: 12vw;}
-    .header-wrap li a{font-size: 0.65rem; color: var(--accent-200);}
+    .header-wrap li a{font-size: 3vw; color: var(--accent-200);}
     .header-btn{display: block;}
     .header-menu{display: none;}
-    .header-wrap li{padding: 0.82vw 1.3vw 0.62vw;;}
+    .header-wrap li{padding: 3.7vw 1.3vw 0.62vw;;}
     .header{background-color: #1010104d; backdrop-filter: blur(10px); padding: 0 0;}
     .header-wrap{padding: 3vh 0 3vh 0;}
-    .header-logo{font-size: 0.88rem; padding: 0; background-color: transparent; backdrop-filter: none; border-radius: 0;}
+    .header-logo{font-size: 4vw; padding: 0; background-color: transparent; backdrop-filter: none; border-radius: 0;}
 
     .hero{margin-top: 1vh; padding-bottom: 5vh; height: auto;}
     .hero-text{top: 5vh;}
@@ -78,8 +78,10 @@
     .contact{margin: 4vh 0 4vh 0;}
     .contact-wrap{font-size: 10vw; width: 87vw;}
 
-    .footer-contact a, .footer-contact h5{ font-size: 2vw;}
-    .footer-wrap p{font-size: 2.5vw;}
+    footer{padding: 1vh 0 0 0;}
+    .footer-wrap{flex-direction: column; justify-content: center; align-items: center; gap: 1.5vh;}
+    .footer-contact a, .footer-contact h5{ font-size: 4vw;}
+    .footer-wrap p{font-size: 4.5vw;}
 }
 
 
