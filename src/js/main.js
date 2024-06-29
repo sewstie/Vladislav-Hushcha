@@ -100,27 +100,11 @@ anchorLinks.forEach((anchorLink) => {
 if (window.innerWidth <= 1024){
   const headerBtn = document.querySelector('.header-btn');
   const headerMenu = document.querySelector('.header-menu-mobile');
-  
-  headerBtn.addEventListener('click', () => {
-    if (headerMenu.style.display === 'none' || headerMenu.style.display === '') {
-        headerMenu.style.display = 'block';
-        headerBtn.textContent = 'close';
-        headerBtn.classList.add('active');
-        gsap.fromTo(headerMenu, {opacity: 0, y: -20}, {opacity: 1, y: 0, duration: 0.33});
-    } else {
-            headerBtn.textContent = 'Menu';
-            headerBtn.classList.remove('active');
-        gsap.fromTo(headerMenu, {opacity: 1, y: 0}, {opacity: 0, y: -20, duration: 0.33, onComplete: () => {
-            headerMenu.style.display = 'none';
-        }});
-    }
-  });
+
 }
 
 /* Blob */
 
-if (window.innerWidth > 1024 || window.innerWidth < 600) {
-  
 const blob = document.getElementById('blob');
 document.body.onpointermove = (event) => {
   const { clientX, clientY } = event;
@@ -130,7 +114,7 @@ document.body.onpointermove = (event) => {
   }, { duration: 3000, fill: 'forwards' });
 }
 
-if (window.innerWidth > 1024) {
+if (window.innerWidth > 600) {
   ScrollTrigger.create({
     trigger: '.about',
     start: 'top top+=140',
@@ -141,8 +125,6 @@ if (window.innerWidth > 1024) {
       gsap.fromTo(blob, { x: '-%', opacity: 0.66 }, { x: '100%', opacity: 0, duration: 1, display: 'none' });
     },
   });
-}
-
 }
 
 /* About */

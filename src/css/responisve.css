@@ -6,20 +6,6 @@
     .contact{ margin: 7vh 0 7vh 0;}
 }
 
-/*   not hover  */
-
-@media (max-width: 1024px){
-    .blur{display: none;}
-    .overlay{opacity: 0.5; top: initial; bottom: 0; border-radius: 0;}
-    .card-content{opacity: 1; position: absolute;}
-    #about.child-hover .wrap-row:not(:hover) h5{filter: none; transition: none;}
-    #about .wrap-row h5:hover{opacity: inherit; color: inherit; transition: none;}
-    #about .wrap-row h5:hover + p{transition: none;}
-    #about p{display: block; color: var(--accent-200); text-align: left;}
-    .about-wrap .wrap-row:nth-child(3) p,
-    .about-wrap .wrap-row:nth-child(5) p {margin-left: 10vw; text-align: right;}
-}
-
 /*  tablets */
 
 @media (max-width: 1024px) {
@@ -33,49 +19,65 @@
     .header{background-color: #1010104d; backdrop-filter: blur(10px); padding: 0 0;}
     .header-wrap{padding: 3vh 0 3vh 0;}
     .header-logo{font-size: 0.88rem; padding: 0; background-color: transparent; backdrop-filter: none; border-radius: 0;}
-    .projects-wrap{margin-top: 5vh;}
+
     .hero{margin-top: 1vh; padding-bottom: 5vh;}
     .hero-text{top: 5vh;}
     .hero-text p{width: 40vw; font-size: 8.5vw;}
+
     #about .wrap-row{flex-direction: column;}
-    #about h5{font-size: 12vw; margin-left: auto;}
+    #about h5{font-size: 12vw; margin-left: auto; margin-top: 3vh;}
     #about .wrap-row h5{padding: 3.35vh 0 3.35vh 0;}
     .about-wrap{display: flex; flex-direction: column; justify-content: center; margin: auto 0;}
-    #about p{font-size: 3.33vw; width: 50%; margin-right: auto;}
+    #about p{font-size: 3.33vw; width: 50%; margin-right: auto; display: block; color: var(--accent-200); text-align: left;}
+    .about-wrap .wrap-row:nth-child(3) p,
+    .about-wrap .wrap-row:nth-child(5) p {margin-left: 10vw; text-align: right;}
     .about{margin-top: 3vh;}
     .about-wrap .word{padding-bottom: 1.35vh;}
+    #about.child-hover .wrap-row:not(:hover) h5{filter: none; transition: none;}
+    #about .wrap-row h5:hover{opacity: inherit; color: inherit; transition: none;}
+    #about .wrap-row h5:hover + p{transition: none;}
+
+    .projects-wrap{margin-top: 5vh;}
     .card{height: 27vh; --pseudo-opacity: 0.5;}
     .card::before{animation: none;}
     .card:after{inset: 2.5px;}
-    .contact{margin: 7vh 0 5vh 0;}
-    .contact-wrap{padding-top: 5vh;}
-    footer{padding: 2vh 0 2vh 0;}
     .card h4{font-size: 2.5vw;}
     .card p{font-size: 1.5vw;}
+    .card-content{opacity: 1; position: absolute;}
+    .overlay{opacity: 0.5; top: initial; bottom: 0; border-radius: 0;}
+
+    .contact{margin: 7vh 0 5vh 0;}
+    .contact-wrap{padding-top: 5vh;}
+
+    footer{padding: 2vh 0 2vh 0;}
 }
 
 /*  smartphones*/
 
-@media (max-width: 600px) {
-    body h3{font-size: 1.5rem; 
-        max-width: 100%;
-        overflow-x: hidden;}
+@media (max-width: 600px){
+    body h3{font-size: 1.5rem; max-width: 100%; overflow-x: hidden;}
     body h3::after{top: -0.7vh; border-bottom: 0.85vh solid var(--accent-100); left: 22px;}
-    #blob{display: block;}
     .projects h3::after, .contact h3::after{left: 35px;}
-    .hero{margin: 8vh 0 6vh 0;}
-    .hero-text{position: static;}
-    .hero-text p{width: 100%; text-align: center; margin: 0 auto; font-size: 2.75rem;}
+    #blob{display: block;}
+
     .canvas{display: none;}
+    .hero{margin: 8vh 0 6vh 0;}
+    .hero-text{position: static; height: min(13.5vh, 25vw);}
+    .hero-text p{width: 100%; text-align: center; margin: 0 auto; font-size: 2.75rem;}
+
     #about p{ width: 66%;}
+    #about .wrap-row h5{padding: 2.95vh 0 2.95vh 0;}
+
     .projects{margin-top: 5vh;}
-    .projects-wrap{margin-top: 2vh; flex-direction: column; align-items: center; gap: 2vh;}
+    .projects-wrap{margin-top: 4vh; flex-direction: column; align-items: center; gap: 2vh;}
     .card{flex: none; width: 100%; height: 30vh;}
     .card:nth-child(5), .card:nth-child(6){display: none;}
     .card h4{font-size: 9.5vw;}
     .card p{font-size: 3.5vw;}
+
     .contact{margin: 4vh 0 4vh 0;}
-    .contact-wrap{font-size: 10vw; width: 83vw;}
+    .contact-wrap{font-size: 10vw; width: 87vw;}
+
     .footer-contact a, .footer-contact h5{ font-size: 2vw;}
     .footer-wrap p{font-size: 2.5vw;}
 }
