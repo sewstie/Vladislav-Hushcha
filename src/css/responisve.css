@@ -13,11 +13,13 @@
     body h3{font-size: 5vw;}
     .loader-percentage{font-size: 12vw;}
     .header-wrap li a{font-size: 3vw;}
+    .header-wrap li{background-color: #1010104d; backdrop-filter: blur(10px);}
+    .header-wrap li:first-child{margin-top: 3.2vw; padding-top: 0;}
     .header-btn{display: block; font-size: 2.5vw; margin-right: 3vw;}
     .header-menu{display: none;}
     .header-wrap li{padding: 1.8vw 1.3vw 0.62vw;}
     .header{background-color: #1010104d; backdrop-filter: blur(10px); padding: 0 0;}
-    .header-wrap{padding: 3vh 0 3vh 0;}
+    .header-wrap{padding: 2.15vh 0 2.15vh 0;}
     .header-logo{font-size: 3.3vw; padding: 0; background-color: transparent; backdrop-filter: none; border-radius: 0; margin-right: 0;}
 
     .hero{margin-top: 1vh; padding-bottom: 5vh; height: auto;}

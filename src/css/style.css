@@ -262,11 +262,8 @@ section{
     position: absolute;
     top: 70%;
     right: 0;
-    overflow: hidden;
-    border-radius: 5px;
     padding-bottom: 1.5vh;
     
-    overflow: hidden;
     z-index: 99;
   }
 

@@ -98,7 +98,6 @@ anchorLinks.forEach((anchorLink) => {
 });
 
 if (window.innerWidth <= 1024){
-  // Assuming GSAP is already included in your project
 document.addEventListener('DOMContentLoaded', function() {
   const headerBtn = document.querySelector('.header-btn');
   const headerMenuMobile = document.querySelector('.header-menu-mobile');
@@ -107,23 +106,19 @@ document.addEventListener('DOMContentLoaded', function() {
     this.classList.toggle('active');
 
     if (this.classList.contains('active')) {
-      // Set .header-menu-mobile to display: block before starting the animation
       gsap.set(headerMenuMobile, {display: 'block'});
-
-      // Then, animate from top to bottom
       gsap.fromTo(headerMenuMobile, {
-        y: '-15%', // Start position, adjust as needed
+        y: '-15%',
         opacity: 0
       }, {
-        y: '0%', // End position
+        y: '0%',
         opacity: 1,
         duration: 0.2,
         ease: 'power1.out'
       });
     } else {
-      // Slide up .header-menu-mobile and then set display to none
       gsap.to(headerMenuMobile, {
-        y: '-15%', // Adjust based on your layout
+        y: '-15%',
         opacity: 0,
         duration: 0.2,
         ease: 'power1.in',
