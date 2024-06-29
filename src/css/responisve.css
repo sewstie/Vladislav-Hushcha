@@ -10,7 +10,7 @@
 
 @media (max-width: 1024px) {
     .container{padding: 0 20px;}
-    body h3{font-size: 3rem;}
+    body h3{font-size: 5vw;}
     .loader-percentage{font-size: 12vw;}
     .header-wrap li a{font-size: 0.65rem; color: var(--accent-200);}
     .header-btn{display: block;}
@@ -20,7 +20,7 @@
     .header-wrap{padding: 3vh 0 3vh 0;}
     .header-logo{font-size: 0.88rem; padding: 0; background-color: transparent; backdrop-filter: none; border-radius: 0;}
 
-    .hero{margin-top: 1vh; padding-bottom: 5vh;}
+    .hero{margin-top: 1vh; padding-bottom: 5vh; height: auto;}
     .hero-text{top: 5vh;}
     .hero-text p{width: 40vw; font-size: 8.5vw;}
 
@@ -55,15 +55,15 @@
 /*  smartphones*/
 
 @media (max-width: 600px){
-    body h3{font-size: 1.5rem; max-width: 100%; overflow-x: hidden;}
+    body h3{font-size: 6vw; max-width: 100%; overflow-x: hidden;}
     body h3::after{top: -0.7vh; border-bottom: 0.85vh solid var(--accent-100); left: 22px;}
     .projects h3::after, .contact h3::after{left: 35px;}
     #blob{display: block;}
 
     .canvas{display: none;}
     .hero{margin: 8vh 0 6vh 0;}
-    .hero-text{position: static; height: min(13.5vh, 25vw);}
-    .hero-text p{width: 100%; text-align: center; margin: 0 auto; font-size: 2.75rem;}
+    .hero-text{position: static; height: min(25vh, 25vw);}
+    .hero-text p{width: 90%; text-align: center; margin: 0 auto; font-size: 11vw}
 
     #about p{ width: 66%;}
     #about .wrap-row h5{padding: 2.95vh 0 2.95vh 0;}

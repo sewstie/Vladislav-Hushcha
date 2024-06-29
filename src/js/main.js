@@ -59,15 +59,13 @@ ScrollTrigger.defaults({
 const locomotiveScroll = new LocomotiveScroll({
   el: scroller,    
   smooth: true,
-  multiplier: 1.0,
   getDirection: true,
+  multiplier: 0.7,
   smartphone: {
       smooth: true,
-      multiplier: 0.6,
   },
   tablet: {
       smooth: true,
-      multiplier: 0.8,
   },
 });
 locomotiveScroll.on('scroll', (instance) => {
@@ -171,7 +169,7 @@ if(window.innerWidth < 1024){
         end: 'bottom-=50 bottom',
         scrub: true,
       },
-      y: 95,
+      y: 85,
       opacity: 0,
       duration: 1,
       ease: 'circ',
@@ -197,8 +195,9 @@ document.addEventListener('DOMContentLoaded', function() {
     duration: 1,
     ease: 'circ',
   });
-
+  
   cards.forEach(function(card) {
+    const yValue = window.innerWidth < 1024 ? 30 : 100;
     gsap.from(card, {
       scrollTrigger: {
         trigger: card,
@@ -206,13 +205,15 @@ document.addEventListener('DOMContentLoaded', function() {
         end: 'bottom bottom+=150',
         scrub: true,
       },
-      y: 30,
+      y: yValue,
       opacity: 0,
-      duration: 2,
+      duration: 1,
       ease: 'circ',
     });
 
     if (window.innerWidth > 1024){
+    
+    
     var content = card.querySelector('.card-content');
     var overlay = card.querySelector('.overlay');
 
