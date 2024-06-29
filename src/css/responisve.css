@@ -26,6 +26,7 @@
     .hero-text{top: 5vh;}
     .hero-text p{width: 40vw; font-size: 8.5vw;}
 
+    .about{padding-top: 6vh; margin-top: 0;}
     #about .wrap-row{flex-direction: column;}
     #about h5{font-size: 12vw; margin-left: auto; margin-top: 3vh;}
     #about .wrap-row h5{padding: 3.35vh 0 3.35vh 0;}
@@ -33,7 +34,6 @@
     #about p{font-size: 3.33vw; width: 50%; margin-right: auto; display: block; color: var(--accent-200); text-align: left;}
     .about-wrap .wrap-row:nth-child(3) p,
     .about-wrap .wrap-row:nth-child(5) p {margin-left: 10vw; text-align: right;}
-    .about{margin-top: 3vh;}
     .about-wrap .word{padding-bottom: 1.35vh;}
     #about.child-hover .wrap-row:not(:hover) h5{filter: none; transition: none;}
     #about .wrap-row h5:hover{opacity: inherit; color: inherit; transition: none;}
@@ -65,14 +65,14 @@
     #blob{display: block;}
 
     .canvas{display: none;}
-    .hero{margin: 8vh 0 6vh 0;}
+    .hero{margin-bottom: 0; padding-top: 8vh;}
     .hero-text{position: static; height: min(25vh, 25vw);}
     .hero-text p{width: 90%; text-align: center; margin: 0 auto; font-size: 11vw}
 
     #about p{ width: 66%;}
     #about .wrap-row h5{padding: 2.95vh 0 2.95vh 0;}
 
-    .projects{margin-top: 5vh;}
+    .projects{padding-top: 6vh; margin-top: 1vh;}
     .projects-wrap{margin-top: 4vh; flex-direction: column; align-items: center; gap: 2vh;}
     .card{flex: none; width: 100%; height: 30vh;}
     .card:nth-child(5), .card:nth-child(6){display: none;}
