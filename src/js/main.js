@@ -63,9 +63,11 @@ const locomotiveScroll = new LocomotiveScroll({
   getDirection: true,
   smartphone: {
       smooth: true,
+      multiplier: 0.6,
   },
   tablet: {
       smooth: true,
+      multiplier: 0.8,
   },
 });
 locomotiveScroll.on('scroll', (instance) => {
@@ -153,12 +155,29 @@ document.querySelectorAll('.about h3, .about-wrap .word, .wrap-row h5').forEach(
       end: 'bottom-=50 bottom',
       scrub: true,
     },
-    y: 100,
+    y: 85,
     opacity: 0,
     duration: 1,
     ease: 'circ',
   });
 });
+
+if(window.innerWidth < 1024){
+  document.querySelectorAll('#about p').forEach((p) => {
+    gsap.from(p, {
+      scrollTrigger: {
+        trigger: p,
+        start: 'top-=75 bottom',
+        end: 'bottom-=50 bottom',
+        scrub: true,
+      },
+      y: 95,
+      opacity: 0,
+      duration: 1,
+      ease: 'circ',
+    });
+  });
+}
 
 /* Projects */
 
@@ -169,11 +188,11 @@ document.addEventListener('DOMContentLoaded', function() {
   gsap.from(projectTitle, {
     scrollTrigger: {
       trigger: projectTitle,
-      start: 'top bottom',
+      start: 'top bottom+=75',
       end: 'bottom bottom',
       scrub: true,
     },
-    y: 100,
+    y: 85,
     opacity: 0,
     duration: 1,
     ease: 'circ',
@@ -183,13 +202,13 @@ document.addEventListener('DOMContentLoaded', function() {
     gsap.from(card, {
       scrollTrigger: {
         trigger: card,
-        start: 'top-=250 bottom+=100',
+        start: 'top-=300 bottom+=100',
         end: 'bottom bottom+=150',
         scrub: true,
       },
-      y: 100,
+      y: 30,
       opacity: 0,
-      duration: 1,
+      duration: 2,
       ease: 'circ',
     });
 
