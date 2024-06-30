@@ -1,6 +1,6 @@
 /* hero 3d-object */
 
-import { Application } from 'https://cdn.skypack.dev/@splinetool/runtime';
+import { Application } from './../../node_modules/@splinetool/runtime/build/runtime.js';
 
 if (window.innerWidth >= 600) {
     const canvas = document.getElementById('canvas3d');
@@ -93,42 +93,62 @@ anchorLinks.forEach((anchorLink) => {
   anchorLink.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
-      locomotiveScroll.scrollTo(target, { offset: -50 })
+      locomotiveScroll.scrollTo(target, { offset: -35 })
   });
 });
 
-if (window.innerWidth <= 1024){
-document.addEventListener('DOMContentLoaded', function() {
-  const headerBtn = document.querySelector('.header-btn');
-  const headerMenuMobile = document.querySelector('.header-menu-mobile');
+/* menu-mobile */
 
-  headerBtn.addEventListener('click', function() {
-    this.classList.toggle('active');
+if (window.innerWidth <= 1024) {
+  document.addEventListener('DOMContentLoaded', function() {
+    const headerBtn = document.querySelector('.header-btn');
+    const headerMenuMobile = document.querySelector('.header-menu-mobile');
+    const menuItems = document.querySelectorAll('.header-wrap li');
 
-    if (this.classList.contains('active')) {
-      gsap.set(headerMenuMobile, {display: 'block'});
-      gsap.fromTo(headerMenuMobile, {
-        y: '-15%',
-        opacity: 0
-      }, {
-        y: '0%',
-        opacity: 1,
-        duration: 0.2,
-        ease: 'power1.out'
+    headerBtn.addEventListener('click', function() {
+      this.classList.toggle('active');
+
+      if (this.classList.contains('active')) {
+        gsap.set(headerMenuMobile, {display: 'block'});
+        gsap.fromTo(headerMenuMobile, {
+          y: '-15%',
+          opacity: 0
+        }, {
+          y: '0%',
+          opacity: 1,
+          duration: 0.2,
+          ease: 'power1.out'
+        });
+      } else {
+        gsap.to(headerMenuMobile, {
+          y: '-15%',
+          opacity: 0,
+          duration: 0.2,
+          ease: 'power1.in',
+          onComplete: function() {
+            gsap.set(headerMenuMobile, {display: 'none'});
+          }
+        });
+      }
+    });
+
+    menuItems.forEach(item => {
+      item.addEventListener('click', () => {
+        setTimeout(() => {
+          gsap.to(headerMenuMobile, {
+            y: '-15%',
+            opacity: 0,
+            duration: 0.2,
+            ease: 'power1.in',
+            onComplete: function() {
+              gsap.set(headerMenuMobile, {display: 'none'});
+              headerBtn.classList.remove('active');
+            }
+          });
+        }, 600);
       });
-    } else {
-      gsap.to(headerMenuMobile, {
-        y: '-15%',
-        opacity: 0,
-        duration: 0.2,
-        ease: 'power1.in',
-        onComplete: function() {
-          gsap.set(headerMenuMobile, {display: 'none'});
-        }
-      });
-    }
+    });
   });
-});
 }
 
 /* Blob */
@@ -142,15 +162,23 @@ document.body.onpointermove = (event) => {
   }, { duration: 3000, fill: 'forwards' });
 }
 
+let startValue;
+
+if (window.innerWidth > 1024) {
+  startValue = 'top top+=140';
+} else if (window.innerWidth > 600) {
+  startValue = 'top top+=30';
+}
+
 if (window.innerWidth > 600) {
   ScrollTrigger.create({
-    trigger: '.about',
-    start: 'top top+=140',
+    trigger: '.about-wrap',
+    start: startValue,
     onEnter: () => {
       gsap.fromTo(blob, { display: 'block', x: '-100%', opacity: 0 }, { x: '0', opacity: 0.66, duration: 2 });
     },
     onLeaveBack: () => {
-      gsap.fromTo(blob, { x: '-%', opacity: 0.66 }, { x: '100%', opacity: 0, duration: 1, display: 'none' });
+      gsap.fromTo(blob, { x: '0', opacity: 0.66 }, { x: '100%', opacity: 0, duration: 1, display: 'none' });
     },
   });
 }
@@ -293,3 +321,4 @@ document.querySelectorAll('.contact h3, .line').forEach((elem) => {
     ease: 'circ',
   });
 });
+
