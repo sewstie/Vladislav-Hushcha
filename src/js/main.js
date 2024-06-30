@@ -1,6 +1,6 @@
 /* hero 3d-object */
 
-import { Application } from './../../node_modules/@splinetool/runtime/build/runtime.js';
+import { Application } from 'https://cdn.skypack.dev/@splinetool/runtime';
 
 if (window.innerWidth >= 600) {
     const canvas = document.getElementById('canvas3d');
