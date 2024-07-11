@@ -11,16 +11,16 @@
     src: local('Roboto'), url('../../public/fonts/Roboto-Medium.woff') format('woff');
 }
 @font-face {
-    font-family: 'Urbane';
+    font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
-    src: local('Urbane'), url('../../public/fonts/Urbane-Medium.woff') format('woff');
+    src: local('Poppins'), url('../../public/fonts/Poppins-Medium.woff') format('woff');
 }
 @font-face {
-    font-family: 'Urbane Demi Bold';
+    font-family: 'Poppins Semi Bold';
     font-style: normal;
     font-weight: 600;
-    src: local('Urbane Demi Bold'), url('../../public/fonts/Urbane-DemiBold.woff') format('woff');
+    src: local('Poppins'), url('../../public/fonts/Poppins-SemiBold.woff') format('woff');
 }
 @font-face {
     font-family: 'Polt';
@@ -86,7 +86,7 @@ body{
 body h3{
     position: relative;
 
-    font-family: 'Urbane';
+    font-family: 'Poppins';
     text-align: center;
     font-size: 3.5vw;
 }
@@ -167,7 +167,7 @@ section{
     margin-top: 4vh;
     font-size: 8vw;
     transition: color 0.3s ease;
-    font-family: "Urbane";
+    font-family: "Poppins";
 }
 
 
@@ -227,7 +227,7 @@ section{
 .header-wrap li a{
     font-size: 1.25vw;
     color: inherit;
-    font-family: 'Urbane';
+    font-family: 'Poppins';
     transition: all 0.5s;
 }
 
@@ -248,7 +248,7 @@ section{
     font-size: 0.88rem;
     text-transform: uppercase;
     color: inherit;
-    font-family: 'Urbane';
+    font-family: 'Poppins';
 }
 
 .header-btn.active{
@@ -282,7 +282,7 @@ section{
     width: 37vw;
 
     color: #FFFFFF;
-    font-family: 'Urbane Demi Bold';
+    font-family: 'Poppins Semi Bold';
     font-size: 6.3vw;
     font-weight: 600;
 }
