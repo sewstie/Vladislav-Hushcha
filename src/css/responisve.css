@@ -13,36 +13,36 @@
     body h3{font-size: 5vw;}
     .loader-percentage{font-size: 12vw;}
     .header-wrap li a{font-size: 3vw;}
-    .header-wrap li{background-color: #1010104d; backdrop-filter: blur(10px);}
+    .header-wrap li{background-color: #1010104d; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);}
     .header-wrap li:first-child{margin-top: 1.73vh; padding-top: 0;}
     .header-btn{display: block; font-size: 2.5vw; margin-right: 3vw;}
     .header-menu{display: none;}
     .header-wrap li{padding: 1.8vw 1.3vw 0.62vw;}
-    .header{background-color: #1010104d; backdrop-filter: blur(10px); padding: 0 0;}
+    .header{background-color: #1010104d; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); padding: 0 0;}
     .header-wrap{padding: 2.15vh 0 2.15vh 0;}
-    .header-logo{font-size: 3.3vw; padding: 0; background-color: transparent; backdrop-filter: none; border-radius: 0; margin-right: 0;}
+    .header-logo{font-size: 3.3vw; padding: 0; background-color: transparent; -webkit-backdrop-filter: none; backdrop-filter: none; border-radius: 0; margin-right: 0;}
 
     .hero{margin-top: 1vh; padding-bottom: 5vh; height: auto;}
     .hero-text{top: 5vh;}
     .hero-text p{width: 40vw; font-size: 8.5vw;}
 
     .about{padding-top: 8vh; margin-top: 0;}
-    #about .wrap-row{flex-direction: column;}
+    #about .wrap-row{-webkit-box-orient: vertical;-webkit-box-direction: normal;-ms-flex-direction: column;flex-direction: column;}
     #about h5{font-size: 12vw; margin-left: auto; margin-top: 3vh;}
     #about .wrap-row h5{padding: 3.35vh 0 3.35vh 0;}
-    .about-wrap{display: flex; flex-direction: column; justify-content: center; margin: auto 0;}
+    .about-wrap{display: -webkit-box;display: -ms-flexbox;display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; margin: auto 0;}
     #about p{font-size: 3.33vw; width: 50%; margin-right: auto; display: block; color: var(--accent-200); text-align: left;}
     .about-wrap .wrap-row:nth-child(3) p,
     .about-wrap .wrap-row:nth-child(5) p {margin-left: 10vw; text-align: right;}
     .about-wrap .word{padding-bottom: 1.35vh;}
-    #about.child-hover .wrap-row:not(:hover) h5{filter: none; transition: none;}
-    #about .wrap-row h5:hover{opacity: inherit; color: inherit; transition: none;}
-    #about .wrap-row h5:hover + p{transition: none;}
+    #about.child-hover .wrap-row:not(:hover) h5{-webkit-filter: none;filter: none; -webkit-transition: none; -o-transition: none; transition: none;}
+    #about .wrap-row h5:hover{opacity: inherit; color: inherit; -webkit-transition: none; -o-transition: none; transition: none;}
+    #about .wrap-row h5:hover + p{-webkit-transition: none;-o-transition: none;transition: none;}
 
     .projects{padding-top: 8vh; margin-top: 0;}
     .projects-wrap{margin-top: 5vh;}
     .card{height: 27vh; --pseudo-opacity: 0.5;}
-    .card::before{animation: none;}
+    .card::before{-webkit-animation: none;animation: none;}
     .card:after{inset: 2.5px;}
     .card h4{font-size: 2.5vw;}
     .card p{font-size: 1.5vw;}
@@ -74,8 +74,8 @@
     #about .wrap-row h5{padding: 2.95vh 0 2.95vh 0;}
 
     .projects{padding-top: 6vh; margin-top: 1vh;}
-    .projects-wrap{margin-top: 4vh; flex-direction: column; align-items: center; gap: 2vh;}
-    .card{flex: none; width: 100%; height: 30vh;}
+    .projects-wrap{margin-top: 4vh; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; gap: 2vh;}
+    .card{-webkit-box-flex: 0;-ms-flex: none;flex: none; width: 100%; height: 30vh;}
     .card:nth-child(5), .card:nth-child(6){display: none;}
     .card h4{font-size: 9.5vw;}
     .card p{font-size: 3.5vw;}
@@ -83,9 +83,8 @@
     .contact{margin: 4vh 0 4vh 0;}
     .contact-wrap{font-size: 10vw; width: 87vw;}
 
-    .footer-wrap{flex-direction: column; justify-content: center; align-items: center; gap: 1.5vh;}
+    .footer-wrap{-webkit-box-orient: vertical;-webkit-box-direction: normal;-ms-flex-direction: column;flex-direction: column; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; gap: 1.5vh;}
     .footer-contact a, .footer-contact h5{ font-size: 3vw;}
     .footer-wrap p{font-size: 3.5vw;}
 }
-
 
