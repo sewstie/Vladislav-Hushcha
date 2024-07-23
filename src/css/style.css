@@ -72,17 +72,13 @@ body{
     font-style: normal;
     z-index: 10;
     -ms-scroll-chaining: none;
-        overscroll-behavior: none;
+    overscroll-behavior: none;
 }
 .container{
     margin: 0 auto;
     position: relative;
     width: 100%;
     padding: 0 4.16vw;
-}
-  
-#scroller{
-    overflow-x: hidden;
 }
 
 body h3{
