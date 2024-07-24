@@ -109,6 +109,7 @@ if (window.innerWidth <= 1024) {
       this.classList.toggle('active');
 
       if (this.classList.contains('active')) {
+        this.textContent = 'Close'; // Change text to 'Close'
         gsap.set(headerMenuMobile, {display: 'block'});
         gsap.fromTo(headerMenuMobile, {
           y: '-15%',
@@ -120,6 +121,7 @@ if (window.innerWidth <= 1024) {
           ease: 'power1.out'
         });
       } else {
+        this.textContent = 'Menu'; // Change text back to 'Menu'
         gsap.to(headerMenuMobile, {
           y: '-15%',
           opacity: 0,
@@ -143,6 +145,7 @@ if (window.innerWidth <= 1024) {
             onComplete: function() {
               gsap.set(headerMenuMobile, {display: 'none'});
               headerBtn.classList.remove('active');
+              headerBtn.textContent = 'Menu'; // Ensure text is reset to 'Menu'
             }
           });
         }, 600);
