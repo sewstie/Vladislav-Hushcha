@@ -2,10 +2,21 @@
 
 import { Application } from 'https://cdn.skypack.dev/@splinetool/runtime';
 
-if (window.innerWidth >= 600) {
+const viewportWidth = window.innerWidth;
+const isDesktop = viewportWidth > 1024;
+const isTabletOrBelow = viewportWidth <= 1024;
+const isPhone = viewportWidth <= 600;
+
+if (!isPhone) {
     const canvas = document.getElementById('canvas3d');
     const app = new Application(canvas);
-    app.load('https://prod.spline.design/eL7BJfHITeWpXVau/scene.splinecode');
+    const loadSplineScene = () => app.load('https://prod.spline.design/eL7BJfHITeWpXVau/scene.splinecode');
+
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(loadSplineScene);
+    } else {
+      setTimeout(loadSplineScene, 0);
+    }
 }
 
 /* Loading screen */
@@ -68,6 +79,12 @@ const locomotiveScroll = new LocomotiveScroll({
       smooth: true,
   },
 });
+
+const syncScrollSystems = () => {
+  locomotiveScroll.update();
+  ScrollTrigger.refresh();
+};
+
 locomotiveScroll.on('scroll', (instance) => {
   ScrollTrigger.update();
   document.documentElement.setAttribute('data-scrolling', instance.direction);
@@ -100,56 +117,54 @@ anchorLinks.forEach((anchorLink) => {
 /* menu-mobile */
 
 if (window.innerWidth <= 1024) {
-  document.addEventListener('DOMContentLoaded', function() {
-    const headerBtn = document.querySelector('.header-btn');
-    const headerMenuMobile = document.querySelector('.header-menu-mobile');
-    const menuItems = document.querySelectorAll('.header-wrap li');
+  const headerBtn = document.querySelector('.header-btn');
+  const headerMenuMobile = document.querySelector('.header-menu-mobile');
+  const menuItems = document.querySelectorAll('.header-wrap li');
 
-    headerBtn.addEventListener('click', function() {
-      this.classList.toggle('active');
+  headerBtn.addEventListener('click', function() {
+    this.classList.toggle('active');
 
-      if (this.classList.contains('active')) {
-        this.textContent = 'Close'; // Change text to 'Close'
-        gsap.set(headerMenuMobile, {display: 'block'});
-        gsap.fromTo(headerMenuMobile, {
-          y: '-15%',
-          opacity: 0
-        }, {
-          y: '0%',
-          opacity: 1,
-          duration: 0.2,
-          ease: 'power1.out'
-        });
-      } else {
-        this.textContent = 'Menu'; // Change text back to 'Menu'
+    if (this.classList.contains('active')) {
+      this.textContent = 'Close';
+      gsap.set(headerMenuMobile, { display: 'block' });
+      gsap.fromTo(headerMenuMobile, {
+        y: '-15%',
+        opacity: 0
+      }, {
+        y: '0%',
+        opacity: 1,
+        duration: 0.2,
+        ease: 'power1.out'
+      });
+    } else {
+      this.textContent = 'Menu';
+      gsap.to(headerMenuMobile, {
+        y: '-15%',
+        opacity: 0,
+        duration: 0.2,
+        ease: 'power1.in',
+        onComplete: function() {
+          gsap.set(headerMenuMobile, { display: 'none' });
+        }
+      });
+    }
+  });
+
+  menuItems.forEach((item) => {
+    item.addEventListener('click', () => {
+      setTimeout(() => {
         gsap.to(headerMenuMobile, {
           y: '-15%',
           opacity: 0,
           duration: 0.2,
           ease: 'power1.in',
           onComplete: function() {
-            gsap.set(headerMenuMobile, {display: 'none'});
+            gsap.set(headerMenuMobile, { display: 'none' });
+            headerBtn.classList.remove('active');
+            headerBtn.textContent = 'Menu';
           }
         });
-      }
-    });
-
-    menuItems.forEach(item => {
-      item.addEventListener('click', () => {
-        setTimeout(() => {
-          gsap.to(headerMenuMobile, {
-            y: '-15%',
-            opacity: 0,
-            duration: 0.2,
-            ease: 'power1.in',
-            onComplete: function() {
-              gsap.set(headerMenuMobile, {display: 'none'});
-              headerBtn.classList.remove('active');
-              headerBtn.textContent = 'Menu'; // Ensure text is reset to 'Menu'
-            }
-          });
-        }, 600);
-      });
+      }, 600);
     });
   });
 }
@@ -157,23 +172,37 @@ if (window.innerWidth <= 1024) {
 /* Blob */
 
 const blob = document.getElementById('blob');
-document.body.onpointermove = (event) => {
-  const { clientX, clientY } = event;
-  blob.animate({
-    left: `${clientX}px`,
-    top: `${clientY}px`
-  }, { duration: 3000, fill: 'forwards' });
+if (!isPhone) {
+  let pointerX = 0;
+  let pointerY = 0;
+  let isTicking = false;
+
+  const updateBlobPosition = () => {
+    blob.style.left = `${pointerX}px`;
+    blob.style.top = `${pointerY}px`;
+    isTicking = false;
+  };
+
+  document.body.addEventListener('pointermove', (event) => {
+    pointerX = event.clientX;
+    pointerY = event.clientY;
+
+    if (!isTicking) {
+      isTicking = true;
+      requestAnimationFrame(updateBlobPosition);
+    }
+  }, { passive: true });
 }
 
 let startValue;
 
-if (window.innerWidth > 1024) {
+if (isDesktop) {
   startValue = 'top top+=140';
-} else if (window.innerWidth > 600) {
+} else if (!isPhone) {
   startValue = 'top top+=30';
 }
 
-if (window.innerWidth > 600) {
+if (!isPhone) {
   ScrollTrigger.create({
     trigger: '.about-wrap',
     start: startValue,
@@ -188,16 +217,38 @@ if (window.innerWidth > 600) {
 
 /* About */
 
-if (window.innerWidth > 1024){
+if (isDesktop) {
+  const aboutSection = document.querySelector('#about');
+
   document.querySelectorAll('#about .wrap-row h5').forEach((item) => {
-    item.addEventListener('mouseover', function() {
-      document.querySelector('#about').classList.add('child-hover');
-      gsap.fromTo(this.nextElementSibling, { opacity: 0, y: 50 }, { display: "block", opacity: 1, y: 0, duration: 0.5 });
+    item.addEventListener('mouseenter', function() {
+      const description = this.nextElementSibling;
+      aboutSection.classList.add('child-hover');
+
+      gsap.killTweensOf(description);
+      gsap.set(description, { display: 'block' });
+      gsap.fromTo(description, { opacity: 0, y: 50 }, {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        onComplete: syncScrollSystems
+      });
     });
-  
-    item.addEventListener('mouseout', function() {
-      document.querySelector('#about').classList.remove('child-hover');
-      gsap.to(this.nextElementSibling, { display: "none", opacity: 0, y: 50, duration: 0.5 });
+
+    item.addEventListener('mouseleave', function() {
+      const description = this.nextElementSibling;
+      aboutSection.classList.remove('child-hover');
+
+      gsap.killTweensOf(description);
+      gsap.to(description, {
+        opacity: 0,
+        y: 50,
+        duration: 0.5,
+        onComplete: () => {
+          gsap.set(description, { display: 'none' });
+          syncScrollSystems();
+        }
+      });
     });
   });
 }
@@ -219,7 +270,7 @@ document.querySelectorAll('.about h3, .about-wrap .word, .wrap-row h5').forEach(
   });
 });
 
-if(window.innerWidth < 1024){
+if (isTabletOrBelow) {
   document.querySelectorAll('#about p').forEach((p) => {
     gsap.from(p, {
       scrollTrigger: {
@@ -238,9 +289,9 @@ if(window.innerWidth < 1024){
 
 /* Projects */
 
-document.addEventListener('DOMContentLoaded', function() {
-  var projectTitle = document.querySelector('.projects h3');
-  var cards = document.querySelectorAll('.card');
+{
+  const projectTitle = document.querySelector('.projects h3');
+  const cards = document.querySelectorAll('.card');
 
   gsap.from(projectTitle, {
     scrollTrigger: {
@@ -255,8 +306,8 @@ document.addEventListener('DOMContentLoaded', function() {
     ease: 'circ',
   });
   
-  cards.forEach(function(card) {
-    const yValue = window.innerWidth < 1024 ? 30 : 100;
+  cards.forEach((card) => {
+    const yValue = isTabletOrBelow ? 30 : 100;
     gsap.from(card, {
       scrollTrigger: {
         trigger: card,
@@ -270,31 +321,29 @@ document.addEventListener('DOMContentLoaded', function() {
       ease: 'circ',
     });
 
-    if (window.innerWidth > 1024){
-    
-    
-    var content = card.querySelector('.card-content');
-    var overlay = card.querySelector('.overlay');
+    if (isDesktop) {
+      const content = card.querySelector('.card-content');
+      const overlay = card.querySelector('.overlay');
 
-    card.addEventListener('mouseenter', function() {
-      gsap.to(card, { '--pseudo-opacity': 1, scale: 1.05, duration: 0.15});
+      card.addEventListener('mouseenter', function() {
+      gsap.to(card, { '--pseudo-opacity': 1, scale: 1.05, duration: 0.15 });
       gsap.to(overlay, { opacity: 0.6, duration: 0.65 });
       gsap.fromTo(content, { y: '100%' }, { y: '0%', opacity: 1, duration: 0.65 });
-    });
+      });
 
-    card.addEventListener('mouseleave', function() {
-      gsap.to(card, { '--pseudo-opacity': 0, scale: 1, duration: 0.15});
-      gsap.to(overlay, { opacity: 0, duration: 0.65 });
-      gsap.fromTo(content, { y: '0%' }, { y: '100%', opacity: 0, duration: 0.65 });
-    });
+      card.addEventListener('mouseleave', function() {
+        gsap.to(card, { '--pseudo-opacity': 0, scale: 1, duration: 0.15 });
+        gsap.to(overlay, { opacity: 0, duration: 0.65 });
+        gsap.fromTo(content, { y: '0%' }, { y: '100%', opacity: 0, duration: 0.65 });
+      });
     }
   });
-});
+}
 
 /* Contact */
 
 function wrapLettersInSpans() {
-  const elements = document.querySelectorAll('#word');
+  const elements = document.querySelectorAll('.fancy');
 
   elements.forEach(element => {
     let text = element.textContent;
