@@ -1,6 +1,6 @@
 /* hero 3d-object */
 
-import { Application } from 'https://cdn.skypack.dev/@splinetool/runtime';
+import { Application } from 'https://cdn.jsdelivr.net/npm/@splinetool/runtime@1.12.98/build/runtime.js';
 
 const viewportWidth = window.innerWidth;
 const isDesktop = viewportWidth > 1024;
