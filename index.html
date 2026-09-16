@@ -103,22 +103,18 @@
                     </a>
                     <a href="https://trip-weaver-omega.vercel.app/" target="_blank" class="card">
                         <div class="overlay"></div>
-<<<<<<< HEAD
-                        <img src="./src/images/projects-image-blank.webp" alt="">
-=======
-                        <img src="./src/images/projects-image-4.png" alt="">
->>>>>>> 3f66602ce0557cead57d800e7f16f1e745116386
+                        <img src="./src/images/projects-image-4.webp" alt="Trip Weaver">
                         <div class="card-content">
                             <h4>Trip Weaver</h4>
                             <p>TripWeaver is your ultimate travel planning companion.</p>
                         </div>
                     </a>
-                    <a href="#" target="_blank" class="card">
+                    <a href="https://paznaj.by/" target="_blank" class="card">
                         <div class="overlay"></div>
-                        <img src="./src/images/projects-image-blank.webp" alt="">
+                        <img src="./src/images/projects-image-5.webp" alt="Paznaj">
                         <div class="card-content">
-                            <h4>WIP</h4>
-                            <p>Here you will see my next project</p>
+                            <h4>Paznaj</h4>
+                            <p>Discover Belarus: places, culture, and travel routes worth knowing.</p>
                         </div>
                     </a>
                     <a href="#" target="_blank" class="card">
@@ -164,10 +160,11 @@
     <footer data-scroll-section>
         <div class="container">
             <div class="footer-wrap">
-                <p>© 2024 Vladislav Hushcha</p>
+                <p>© <span id="footer-year">2026</span> Vladislav Hushcha</p>
                 <div class="footer-contact">
                     <a href="https://github.com/sewstie" target="_blank">GitHub</a>
-                    <a href=mailto:“vladislav.hushcha@gmail.com”>vladislav.hushcha@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/vladislav-hushcha-787589359" target="_blank">LinkedIn</a>
+                    <a href="mailto:vladislav.hushcha@gmail.com">vladislav.hushcha@gmail.com</a>
                 </div>
             </div>
         </div>
@@ -177,5 +174,8 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
     <script src="./public/js/locomotive-scroll.min.js"></script>
     <script type="module" src="./src/js/main.js"></script>
+    <script>
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

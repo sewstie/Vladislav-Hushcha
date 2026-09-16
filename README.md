@@ -8,7 +8,8 @@ This site showcases my projects, skills, and experience as a web developer. Expl
 
 - **Email**: [vladislav.hushcha@gmail.com](mailto:vladislav.hushcha@gmail.com)
 - **GitHub**: [sewstie](https://github.com/sewstie)
+- **LinkedIn**: [vladislav-hushcha](https://www.linkedin.com/in/vladislav-hushcha-787589359)
 
 ---
 
-© 2024 Vladislav Hushcha
+© 2026 Vladislav Hushcha
