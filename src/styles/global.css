@@ -413,8 +413,6 @@ section:focus, footer:focus {
 .hero-text {
     position: absolute;
     top: 15vh;
-    z-index: 1;
-    pointer-events: none; /* text sits over the robot canvas; only the buttons take clicks */
 }
 .typewriter {
     width: 37vw;
@@ -429,49 +427,6 @@ section:focus, footer:focus {
     color: var(--accent-100);
 }
 
-.hero-sub {
-    max-width: 30ch;
-    margin-top: 1.5rem;
-    color: var(--text-200);
-    font-size: clamp(1rem, 1.3vw, 1.5rem);
-    line-height: 1.4;
-}
-
-.hero-cta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 1.5rem;
-    pointer-events: auto;
-}
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    padding: 0 1.25rem;
-    border: 1px solid var(--text-100);
-    border-radius: 8px;
-    color: var(--text-100);
-    text-decoration: none;
-    font-size: clamp(1rem, 1.1vw, 1.25rem);
-    transition: opacity 0.3s;
-}
-
-.btn-primary {
-    background-color: var(--accent-100);
-    border-color: var(--accent-100);
-    color: var(--bg-100);
-}
-
-.btn:focus-visible {
-    outline: 2px solid var(--accent-200);
-    outline-offset: 3px;
-}
-
-@media (hover:hover){
-    .btn:hover {opacity: 0.8;}
-}
 
 .is-typing .tw:not(.on) {
     opacity: 0;
@@ -1057,8 +1012,6 @@ section:focus, footer:focus {
     .hero{margin-bottom: 0; padding-top: 8vh; min-height: 100svh; display: grid; align-content: center;}
     .hero-text{position: static;}
     .typewriter{width: 90%; text-align: center; margin: 0 auto; font-size: clamp(2.25rem, 11vw, 4rem);}
-    .hero-sub{text-align: center; margin-inline: auto;}
-    .hero-cta{justify-content: center;}
 
     #about p{ width: 66%;}
     #about .wrap-row h4{padding: 2.95vh 0 2.95vh 0;}
