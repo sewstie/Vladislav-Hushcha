@@ -1,22 +1,6 @@
-/* hero 3d-object */
-
-import { Application } from 'https://cdn.jsdelivr.net/npm/@splinetool/runtime@1.12.98/build/runtime.js';
-
 const viewportWidth = window.innerWidth;
 const isDesktop = viewportWidth > 1024;
 const isPhone = viewportWidth <= 600;
-
-if (!isPhone) {
-    const canvas = document.getElementById('canvas3d');
-    const app = new Application(canvas);
-    const loadSplineScene = () => app.load('https://prod.spline.design/eL7BJfHITeWpXVau/scene.splinecode');
-
-    if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(loadSplineScene);
-    } else {
-      setTimeout(loadSplineScene, 0);
-    }
-}
 
 /* menu-mobile */
 
