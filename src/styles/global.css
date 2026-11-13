@@ -314,6 +314,11 @@ section {
     position: relative;
 
     margin-right: 1.3vw;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0 0.5rem;
+    background: none;
+    border: 0;
     cursor: pointer;
     text-align: center;
     font-size: 0.88rem;
@@ -322,7 +327,7 @@ section {
     font-family: 'Poppins';
 }
 
-.header-btn.active{
+.header-btn[aria-expanded="true"]{
     color: var(--accent-100);
 }
 
@@ -339,6 +344,12 @@ section {
     
     z-index: 99;
   }
+
+.header-menu-mobile a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+}
 
 .header-menu-mobile.is-open {
     display: block;
@@ -873,10 +884,10 @@ footer{
 @media (max-width: 1024px) {
     .container{padding: 0 20px;}
     body h3{font-size: 5vw;}
-    .header-wrap li a{font-size: 3vw;}
+    .header-wrap li a{font-size: clamp(1rem, 3vw, 1.5rem);}
     .header-wrap li{background-color: #1010104d; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);}
     .header-wrap li:first-child{margin-top: 1.73vh; padding-top: 0;}
-    .header-btn{display: block; font-size: 2.5vw; margin-right: 3vw;}
+    .header-btn{display: block; font-size: clamp(0.9rem, 2.5vw, 1.25rem); margin-right: 3vw;}
     .header-menu{display: none;}
     .header-wrap li{padding: 1.8vw 1.3vw 0.62vw;}
     .header{background-color: #1010104d; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); padding: 0 0;}

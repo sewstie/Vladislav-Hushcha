@@ -4,19 +4,25 @@ const isPhone = viewportWidth <= 600;
 
 /* menu-mobile */
 
-if (window.innerWidth <= 1024) {
+{
   const headerBtn = document.querySelector('.header-btn');
   const headerMenuMobile = document.querySelector('.header-menu-mobile');
-  const menuItems = document.querySelectorAll('.header-wrap li');
+  const isOpen = () => headerBtn.getAttribute('aria-expanded') === 'true';
 
   const setMenu = (open) => {
-    headerBtn.classList.toggle('active', open);
+    headerBtn.setAttribute('aria-expanded', open);
     headerMenuMobile.classList.toggle('is-open', open);
     headerBtn.textContent = open ? 'Close' : 'Menu';
   };
 
-  headerBtn.addEventListener('click', () => setMenu(!headerBtn.classList.contains('active')));
-  menuItems.forEach((item) => item.addEventListener('click', () => setMenu(false)));
+  headerBtn.addEventListener('click', () => setMenu(!isOpen()));
+  headerMenuMobile.addEventListener('click', (e) => e.target.closest('a') && setMenu(false));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen()) {
+      setMenu(false);
+      headerBtn.focus();
+    }
+  });
 }
 
 /* Blob */
