@@ -4,7 +4,6 @@ import { Application } from 'https://cdn.jsdelivr.net/npm/@splinetool/runtime@1.
 
 const viewportWidth = window.innerWidth;
 const isDesktop = viewportWidth > 1024;
-const isTabletOrBelow = viewportWidth <= 1024;
 const isPhone = viewportWidth <= 600;
 
 if (!isPhone) {
@@ -18,63 +17,6 @@ if (!isPhone) {
       setTimeout(loadSplineScene, 0);
     }
 }
-
-/* Locomotive scroll & GSAP scroll trigger */
-
-gsap.registerPlugin(ScrollTrigger);
-
-const scroller = document.querySelector('#scroller');
-
-ScrollTrigger.defaults({
-  scroller: scroller,
-  markers: false
-});
-const locomotiveScroll = new LocomotiveScroll({
-  el: scroller,    
-  smooth: true,
-  getDirection: true,
-  multiplier: 0.7,
-  smartphone: {
-      smooth: true,
-  },
-  tablet: {
-      smooth: true,
-  },
-});
-
-const syncScrollSystems = () => {
-  locomotiveScroll.update();
-  ScrollTrigger.refresh();
-};
-
-locomotiveScroll.on('scroll', (instance) => {
-  ScrollTrigger.update();
-  document.documentElement.setAttribute('data-scrolling', instance.direction);
-});
-ScrollTrigger.scrollerProxy(scroller, {
-  scrollTop(value) {
-    return arguments.length ? locomotiveScroll.scrollTo(value, 0, 0) : locomotiveScroll.scroll.instance.scroll.y;
-  },
-  getBoundingClientRect() {
-    return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-  },
-  pinType: scroller.style.transform ? "transform" : "fixed"
-});
-
-const anchorLinks = document.querySelectorAll('.header-menu a');
-
-anchorLinks.forEach((anchorLink) => {
-  let hashval = anchorLink.getAttribute('href');
-  if (hashval === '#') return; 
-
-  let target = document.querySelector(hashval);
-
-  anchorLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      locomotiveScroll.scrollTo(target, { offset: -35 })
-  });
-});
 
 /* menu-mobile */
 
@@ -156,25 +98,12 @@ if (!isPhone) {
   }, { passive: true });
 }
 
-let startValue;
-
-if (isDesktop) {
-  startValue = 'top top+=140';
-} else if (!isPhone) {
-  startValue = 'top top+=30';
-}
-
 if (!isPhone) {
-  ScrollTrigger.create({
-    trigger: '.about-wrap',
-    start: startValue,
-    onEnter: () => {
-      gsap.fromTo(blob, { display: 'block', x: '-100%', opacity: 0 }, { x: '0', opacity: 0.66, duration: 2 });
-    },
-    onLeaveBack: () => {
-      gsap.fromTo(blob, { x: '0', opacity: 0.66 }, { x: '100%', opacity: 0, duration: 1, display: 'none' });
-    },
-  });
+  const aboutWrap = document.querySelector('.about-wrap');
+  const offset = isDesktop ? 140 : 30;
+  const toggleBlob = () => blob.classList.toggle('is-on', aboutWrap.getBoundingClientRect().top <= offset);
+  window.addEventListener('scroll', toggleBlob, { passive: true });
+  toggleBlob();
 }
 
 /* About */
@@ -192,8 +121,7 @@ if (isDesktop) {
       gsap.fromTo(description, { opacity: 0, y: 50 }, {
         opacity: 1,
         y: 0,
-        duration: 0.5,
-        onComplete: syncScrollSystems
+        duration: 0.5
       });
     });
 
@@ -206,45 +134,8 @@ if (isDesktop) {
         opacity: 0,
         y: 50,
         duration: 0.5,
-        onComplete: () => {
-          gsap.set(description, { display: 'none' });
-          syncScrollSystems();
-        }
+        onComplete: () => gsap.set(description, { display: 'none' })
       });
-    });
-  });
-}
-
-/* About GSAP */
-
-document.querySelectorAll('.about h3, .about-wrap .word, .wrap-row h5').forEach((elem) => {
-  gsap.from(elem, {
-    scrollTrigger: {
-      trigger: elem,
-      start: 'top-=75 bottom',
-      end: 'bottom-=50 bottom',
-      scrub: true,
-    },
-    y: 85,
-    opacity: 0,
-    duration: 1,
-    ease: 'circ',
-  });
-});
-
-if (isTabletOrBelow) {
-  document.querySelectorAll('#about p').forEach((p) => {
-    gsap.from(p, {
-      scrollTrigger: {
-        trigger: p,
-        start: 'top-=75 bottom',
-        end: 'bottom-=50 bottom',
-        scrub: true,
-      },
-      y: 85,
-      opacity: 0,
-      duration: 1,
-      ease: 'circ',
     });
   });
 }
@@ -252,37 +143,9 @@ if (isTabletOrBelow) {
 /* Projects */
 
 {
-  const projectTitle = document.querySelector('.projects h3');
   const cards = document.querySelectorAll('.card');
 
-  gsap.from(projectTitle, {
-    scrollTrigger: {
-      trigger: projectTitle,
-      start: 'top bottom+=75',
-      end: 'bottom bottom',
-      scrub: true,
-    },
-    y: 85,
-    opacity: 0,
-    duration: 1,
-    ease: 'circ',
-  });
-  
   cards.forEach((card) => {
-    const yValue = isTabletOrBelow ? 30 : 100;
-    gsap.from(card, {
-      scrollTrigger: {
-        trigger: card,
-        start: 'top-=300 bottom+=100',
-        end: 'bottom bottom+=150',
-        scrub: true,
-      },
-      y: yValue,
-      opacity: 0,
-      duration: 1,
-      ease: 'circ',
-    });
-
     if (isDesktop) {
       const content = card.querySelector('.card-content');
       const overlay = card.querySelector('.overlay');
@@ -320,19 +183,3 @@ function wrapLettersInSpans() {
 }
 
 wrapLettersInSpans();
-
-document.querySelectorAll('.contact h3, .line').forEach((elem) => {
-  gsap.from(elem, {
-    scrollTrigger: {
-      trigger: elem,
-      start: 'top bottom+=75',
-      end: 'bottom bottom',
-      scrub: true,
-    },
-    y: 100,
-    opacity: 0,
-    duration: 1,
-    ease: 'circ',
-  });
-});
-
