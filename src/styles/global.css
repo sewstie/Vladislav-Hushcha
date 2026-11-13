@@ -200,6 +200,11 @@ section, footer {
     scroll-margin-top: 35px;
 }
 
+/* sections get tabindex=-1 only so nav clicks can move focus; no ring on the whole block */
+section:focus, footer:focus {
+    outline: none;
+}
+
 @supports (animation-timeline: view()) {
     @media (prefers-reduced-motion: no-preference) {
         .about h3, .about-wrap .word, .wrap-row h5,

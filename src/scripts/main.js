@@ -25,6 +25,18 @@ const isPhone = viewportWidth <= 600;
   });
 }
 
+/* In-page links: scroll without putting #section in the URL */
+
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a[href^="#"]');
+  const target = link && document.querySelector(link.getAttribute('href'));
+  if (!target) return;
+  e.preventDefault();
+  target.scrollIntoView(); // smooth via CSS scroll-behavior, instant under reduced motion
+  target.setAttribute('tabindex', '-1');
+  target.focus({ preventScroll: true }); // keep keyboard focus moving like a real anchor jump
+});
+
 /* Blob */
 
 const blob = document.getElementById('blob');
