@@ -2,42 +2,42 @@
   {
     "title": "Online-Zoo",
     "href": "https://sewstie.github.io/online-zoo/",
-    "image": "/images/projects-image-1.webp",
+    "image": "projects-image-1.webp",
     "alt": "Online-Zoo",
     "description": "Dynamic web project with engaging visuals, intuitive navigation, and interactive features."
   },
   {
     "title": "Shear",
     "href": "https://sewstie.github.io/Shears/",
-    "image": "/images/projects-image-2.webp",
+    "image": "projects-image-2.webp",
     "alt": "Shears",
     "description": "Interactive web initiative featuring captivating imagery, seamless browsing, and dynamic user elements."
   },
   {
     "title": "To Do List",
     "href": "https://sewstie.github.io/ToDoList/",
-    "image": "/images/projects-image-3.webp",
+    "image": "projects-image-3.webp",
     "alt": "ToDoList",
     "description": "Interactive platform for seamless daily task organization."
   },
   {
     "title": "Trip Weaver",
     "href": "https://trip-weaver-omega.vercel.app/",
-    "image": "/images/projects-image-4.webp",
+    "image": "projects-image-4.webp",
     "alt": "Trip Weaver",
     "description": "TripWeaver is your ultimate travel planning companion."
   },
   {
     "title": "Paznaj",
     "href": "https://paznaj.by/",
-    "image": "/images/projects-image-5.webp",
+    "image": "projects-image-5.webp",
     "alt": "Paznaj",
     "description": "Discover Belarus: places, culture, and travel routes worth knowing."
   },
   {
     "title": "WIP",
     "href": "#",
-    "image": "/images/projects-image-blank.webp",
+    "image": "projects-image-blank.webp",
     "alt": "",
     "description": "Here you will see my next project"
   }

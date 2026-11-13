@@ -1,9 +1,14 @@
 ---
+import { Image } from 'astro:assets';
+
 const { title, href, image, alt, description } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>('../assets/*.webp', { eager: true });
+const src = images[`../assets/${image}`]?.default;
+if (!src) throw new Error(`projects.json: missing image src/assets/${image}`);
 ---
 <a href={href} target="_blank" class="card">
     <div class="overlay"></div>
-    <img src={image} alt={alt}>
+    <Image src={src} alt={alt} width={960} widths={[480, 960]} sizes="(max-width: 600px) 100vw, 33vw" quality={70} />
     <div class="card-content">
         <h4>{title}</h4>
         <p>{description}</p>
