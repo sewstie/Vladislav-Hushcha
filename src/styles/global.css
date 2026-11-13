@@ -207,7 +207,7 @@ section:focus, footer:focus {
 
 @supports (animation-timeline: view()) {
     @media (prefers-reduced-motion: no-preference) {
-        .about h3, .about-wrap .word, .wrap-row h5,
+        .about h3, .about-wrap .word, .wrap-row h4,
         .projects h3, .card,
         .contact h3, .line {
             animation: reveal linear both;
@@ -454,7 +454,7 @@ section:focus, footer:focus {
     margin-top: 10vh;
 }
 
-#about h5{
+#about h4{
     margin-top: 5vh;
     font-family: "Polt Bold";
     font-size: 7vw;
@@ -481,7 +481,7 @@ section:focus, footer:focus {
     transition: 0.3s ease-in-out;
 }
 
-#about .wrap-row h5{
+#about .wrap-row h4{
     padding: 1.35vh 0 1.35vh 0;
     margin-top: 0;
     -webkit-transition: 0.5s ease-in-out;
@@ -497,7 +497,7 @@ section:focus, footer:focus {
     font-size: 1.35vw;
 }
 
-#about .wrap-row h5:hover {
+#about .wrap-row h4:hover {
     opacity: 1;
     color: var(--accent-200);
     -webkit-transition: 0.3s ease-in-out;
@@ -505,7 +505,7 @@ section:focus, footer:focus {
     transition: 0.3s ease-in-out;
 }
 
-#about:has(.wrap-row h5:hover) .wrap-row:not(:hover) h5 {
+#about:has(.wrap-row h4:hover) .wrap-row:not(:hover) h4 {
     -webkit-filter: blur(25px); 
             filter: blur(25px);
     -webkit-transition: 0.5s ease-in-out;
@@ -513,7 +513,7 @@ section:focus, footer:focus {
     transition: 0.5s ease-in-out;
 }
 
-#about .wrap-row h5:hover + p {
+#about .wrap-row h4:hover + p {
     opacity: 1;
     transform: none;
 }
@@ -903,16 +903,16 @@ section:focus, footer:focus {
 
     .about{padding-top: 8vh; margin-top: 0;}
     #about .wrap-row{-webkit-box-orient: vertical;-webkit-box-direction: normal;-ms-flex-direction: column;flex-direction: column;}
-    #about h5{font-size: 12vw; margin-left: auto; margin-top: 3vh;}
-    #about .wrap-row h5{padding: 3.35vh 0 3.35vh 0;}
+    #about h4{font-size: 12vw; margin-left: auto; margin-top: 3vh;}
+    #about .wrap-row h4{padding: 3.35vh 0 3.35vh 0;}
     .about-wrap{display: -webkit-box;display: -ms-flexbox;display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; margin: auto 0;}
     #about p{font-size: 3.33vw; width: 50%; margin-right: auto; opacity: 1; transform: none; color: var(--accent-200); text-align: left;}
     .about-wrap .wrap-row:nth-child(3) p,
     .about-wrap .wrap-row:nth-child(5) p {margin-left: 10vw; text-align: right;}
     .about-wrap .word{padding-bottom: 1.35vh;}
-    #about:has(.wrap-row h5:hover) .wrap-row:not(:hover) h5{-webkit-filter: none;filter: none; -webkit-transition: none; -o-transition: none; transition: none;}
-    #about .wrap-row h5:hover{opacity: inherit; color: inherit; -webkit-transition: none; -o-transition: none; transition: none;}
-    #about .wrap-row h5:hover + p{-webkit-transition: none;-o-transition: none;transition: none;}
+    #about:has(.wrap-row h4:hover) .wrap-row:not(:hover) h4{-webkit-filter: none;filter: none; -webkit-transition: none; -o-transition: none; transition: none;}
+    #about .wrap-row h4:hover{opacity: inherit; color: inherit; -webkit-transition: none; -o-transition: none; transition: none;}
+    #about .wrap-row h4:hover + p{-webkit-transition: none;-o-transition: none;transition: none;}
 
     .projects{padding-top: 8vh; margin-top: 0;}
     .projects-wrap{margin-top: 5vh;}
@@ -943,7 +943,7 @@ section:focus, footer:focus {
     .hero-text p{width: 90%; text-align: center; margin: 0 auto; font-size: 11vw}
 
     #about p{ width: 66%;}
-    #about .wrap-row h5{padding: 2.95vh 0 2.95vh 0;}
+    #about .wrap-row h4{padding: 2.95vh 0 2.95vh 0;}
 
     .projects{padding-top: 6vh; margin-top: 1vh;}
     .projects-wrap{margin-top: 4vh; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; gap: 2vh;}
