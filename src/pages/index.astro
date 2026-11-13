@@ -6,6 +6,8 @@ import About from '../components/About.astro';
 import Projects from '../components/Projects.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
+
+const description = 'Vladislav Hushcha, Computer Science student at WPI and web developer. Projects, about, and contact.';
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +15,16 @@ import Footer from '../components/Footer.astro';
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="P-LEzXTTfwVPFu-TOFzza0nQkbLUo53qsDmG67L7fqA" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="Vladislav Hushcha is a web developer with a passion for creating innovative digital experiences that leave a lasting impact on users.">
+    <meta name="description" content={description}>
+    <link rel="canonical" href={Astro.site}>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content={Astro.site}>
+    <meta property="og:title" content="Vladislav Hushcha">
+    <meta property="og:description" content={description}>
+    <meta property="og:image" content={new URL('/og-image.jpg', Astro.site)}>
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="keywords" content="Vladislav Hushcha, web developer, front-end developer, web development, front-end development, web design, front-end design, web developer portfolio, front-end developer portfolio, web development portfolio, front-end development portfolio, web design portfolio, front-end design portfolio">
     <link rel="preload" href="/fonts/Poppins-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/fonts/Polt-Bold.woff2" as="font" type="font/woff2" crossorigin>
