@@ -1,12 +1,51 @@
-<footer>
+---
+import { existsSync } from 'node:fs';
+import site from '../data/site.json';
+
+const { links, email, business } = site;
+// Hide the resume link until the PDF is actually in public/, so it never 404s.
+const hasResume = existsSync(`public${links.resume}`);
+---
+<footer class="contact" id="contact">
     <div class="container">
-        <div class="footer-wrap">
-            <p>© <span id="footer-year">{new Date().getFullYear()}</span> Vladislav Hushcha</p>
-            <div class="footer-contact">
-                <a href="https://github.com/sewstie" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/vladislav-hushcha-787589359" target="_blank">LinkedIn</a>
-                <a href="mailto:vladislav.hushcha@gmail.com">vladislav.hushcha@gmail.com</a>
+        <h3>Contact</h3>
+        <div class="contact-wrap">
+            <div class="line">
+                <p class="word">LET'S</p>
+                <p class="word">BUILD</p>
             </div>
+            <div class="line">
+                <p class="word">AN</p>
+                <p class="word">INNOVATIVE</p>
+            </div>
+            <div class="line">
+                <p class="word">TECH</p>
+                <p class="word">SOLUTION</p>
+            </div>
+            <div class="line">
+                <a href={links.source} target="_blank" rel="noopener" class="word fancy">COLLABORATIVELY</a>
+            </div>
+            <div class="line">
+                <a href={`mailto:${email}`} class="word fancy">→ EMAIL</a>
+                <a href={links.github} target="_blank" rel="noopener" class="word fancy">→ GITHUB</a>
+            </div>
+            <div class="line">
+                <a href={links.linkedin} target="_blank" rel="noopener" class="word fancy">→ LINKEDIN</a>
+            </div>
+            {hasResume && (
+                <div class="line">
+                    <a href={links.resume} target="_blank" rel="noopener" class="word fancy">→ RESUME</a>
+                </div>
+            )}
+        </div>
+    </div>
+    <div class="footer-bar">
+        <div class="container footer-wrap">
+            <div class="footer-contact">
+                <a href={`mailto:${email}`}>{email}</a>
+                {business.live && <a href={business.url} target="_blank" rel="noopener">Building a website for your business? →</a>}
+            </div>
+            <p>{site.footer} · © <span id="footer-year">{new Date().getFullYear()}</span> {site.name}</p>
         </div>
     </div>
 </footer>

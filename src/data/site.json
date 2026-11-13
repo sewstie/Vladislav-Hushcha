@@ -1,0 +1,15 @@
+{
+  "name": "Vladislav Hushcha",
+  "email": "vladislav@vladislavhushcha.me",
+  "links": {
+    "github": "https://github.com/sewstie",
+    "linkedin": "https://www.linkedin.com/in/vladislav-hushcha-787589359",
+    "resume": "/resume.pdf",
+    "source": "https://github.com/sewstie/Vladislav-Hushcha"
+  },
+  "business": {
+    "url": "https://web.vladislavhushcha.me",
+    "live": false
+  },
+  "footer": "Worcester, MA · Built with Astro"
+}
