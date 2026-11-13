@@ -941,6 +941,7 @@ section:focus, footer:focus {
     body h3{font-size: 6vw; max-width: 100%; overflow-x: hidden;}
     body h3::after{top: -0.7vh; border-bottom: 0.85vh solid var(--accent-100); left: 22px;}
     .projects h3::after, .contact h3::after{left: 35px;}
+    html, body{overflow-x: clip;} /* body clips the absolute, rotating blob; html stops body propagating to the viewport */
     body{position: relative;}
     #blob{display: block; position: absolute;}
 
