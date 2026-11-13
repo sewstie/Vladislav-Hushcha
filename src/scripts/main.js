@@ -40,7 +40,7 @@ document.addEventListener('click', (e) => {
 /* Blob */
 
 const blob = document.getElementById('blob');
-if (!isPhone) {
+if (!isPhone && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   let pointerX = 0;
   let pointerY = 0;
   let isTicking = false;

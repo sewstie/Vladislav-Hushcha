@@ -196,6 +196,13 @@ section{
     }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
 section, footer {
     scroll-margin-top: 35px;
 }
