@@ -387,8 +387,10 @@ section:focus, footer:focus {
 .hero-text {
     position: absolute;
     top: 15vh;
+    z-index: 1;
+    pointer-events: none; /* text sits over the robot canvas; only the buttons take clicks */
 }
-.hero-text p {
+.typewriter {
     width: 37vw;
 
     color: #FFFFFF;
@@ -399,6 +401,50 @@ section:focus, footer:focus {
 
 .hero-text .word {
     color: var(--accent-100);
+}
+
+.hero-sub {
+    max-width: 30ch;
+    margin-top: 1.5rem;
+    color: var(--text-200);
+    font-size: clamp(1rem, 1.3vw, 1.5rem);
+    line-height: 1.4;
+}
+
+.hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    pointer-events: auto;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 1.25rem;
+    border: 1px solid var(--text-100);
+    border-radius: 8px;
+    color: var(--text-100);
+    text-decoration: none;
+    font-size: clamp(1rem, 1.1vw, 1.25rem);
+    transition: opacity 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--accent-100);
+    border-color: var(--accent-100);
+    color: var(--bg-100);
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--accent-200);
+    outline-offset: 3px;
+}
+
+@media (hover:hover){
+    .btn:hover {opacity: 0.8;}
 }
 
 .is-typing .tw:not(.on) {
@@ -906,7 +952,7 @@ section:focus, footer:focus {
 
     .hero{margin-top: 1vh; padding-bottom: 5vh; height: auto;}
     .hero-text{top: 5vh;}
-    .hero-text p{width: 40vw; font-size: 8.5vw;}
+    .typewriter{width: 40vw; font-size: 8.5vw;}
 
     .about{padding-top: 8vh; margin-top: 0;}
     #about .wrap-row{-webkit-box-orient: vertical;-webkit-box-direction: normal;-ms-flex-direction: column;flex-direction: column;}
@@ -946,9 +992,11 @@ section:focus, footer:focus {
     #blob{display: block; position: absolute;}
 
     .canvas{margin-left: 0;}
-    .hero{margin-bottom: 0; padding-top: 8vh;}
+    .hero{margin-bottom: 0; padding-top: 8vh; min-height: 100svh; display: grid; align-content: center;}
     .hero-text{position: static;}
-    .hero-text p{width: 90%; text-align: center; margin: 0 auto; font-size: 11vw}
+    .typewriter{width: 90%; text-align: center; margin: 0 auto; font-size: 11vw}
+    .hero-sub{text-align: center; margin-inline: auto;}
+    .hero-cta{justify-content: center;}
 
     #about p{ width: 66%;}
     #about .wrap-row h4{padding: 2.95vh 0 2.95vh 0;}
