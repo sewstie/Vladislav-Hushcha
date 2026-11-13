@@ -6,7 +6,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>('../assets/*.webp', 
 const src = images[`../assets/${image}`]?.default;
 if (!src) throw new Error(`projects.json: missing image src/assets/${image}`);
 ---
-<a href={href} target="_blank" class="card">
+<a href={href} target="_blank" rel="noopener" class="card">
     <div class="overlay"></div>
     <Image src={src} alt={alt} width={960} widths={[480, 960]} sizes="(max-width: 600px) 100vw, 33vw" quality={70} />
     <div class="card-content">
