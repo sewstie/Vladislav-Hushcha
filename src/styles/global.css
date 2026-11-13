@@ -44,41 +44,33 @@ table {
     box-sizing: border-box;
 }
 @font-face {
-    font-family: 'Roboto Bold Italic';
-    font-style: italic;
-    font-weight: 700;
-    src: local('Roboto Bold Italic'), url('/fonts/Roboto-BoldItalic.woff') format('woff');
-}
-@font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    src: local('Roboto'), url('/fonts/Roboto-Medium.woff') format('woff');
-}
-@font-face {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
-    src: local('Poppins'), url('/fonts/Poppins-Medium.woff') format('woff');
+    font-display: swap;
+    src: url('/fonts/Poppins-Medium.woff2') format('woff2');
 }
 @font-face {
     font-family: 'Poppins Semi Bold';
     font-style: normal;
     font-weight: 600;
-    src: local('Poppins'), url('/fonts/Poppins-SemiBold.woff') format('woff');
+    font-display: swap;
+    src: url('/fonts/Poppins-SemiBold.woff2') format('woff2');
 }
 @font-face {
     font-family: 'Polt';
     font-style: normal;
     font-weight: 400;
-    src: local('Polt'), url('/fonts/Polt-Regular.woff') format('woff');
+    font-display: swap;
+    src: url('/fonts/Polt-Regular.woff2') format('woff2');
 }
 @font-face {
     font-family: 'Polt Bold';
     font-style: normal;
     font-weight: 700;
-    src: local('Polt Bold'), url('/fonts/Polt-bold.woff') format('woff');
- }
+    font-display: swap;
+    src: url('/fonts/Polt-Bold.woff2') format('woff2');
+}
 
 :root{
 --primary-100:#1A1A1A;
@@ -98,7 +90,7 @@ html {
 
 body{
     background-color: var(--bg-100);
-    font-family: 'Roboto';    
+    font-family: 'Poppins';
     color: #FFFFFF;
     font-weight: 500;
     font-style: normal;
@@ -265,7 +257,7 @@ section {
     color: var(--accent-100);
     font-style: italic;
     font-weight: 700;
-    font-family: 'Roboto Bold Italic';
+    font-family: 'Polt Bold';
 
     padding: 0.55vw 0.89vw;
     background-color: #1010104d;
