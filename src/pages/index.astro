@@ -1,0 +1,44 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Projects from '../components/Projects.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="P-LEzXTTfwVPFu-TOFzza0nQkbLUo53qsDmG67L7fqA" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="description" content="Vladislav Hushcha is a web developer with a passion for creating innovative digital experiences that leave a lasting impact on users.">
+    <meta name="keywords" content="Vladislav Hushcha, web developer, front-end developer, web development, front-end development, web design, front-end design, web developer portfolio, front-end developer portfolio, web development portfolio, front-end development portfolio, web design portfolio, front-end design portfolio">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <title>Vladislav Hushcha</title>
+</head>
+<body id="scroller">
+    <div class="loader">
+        <div class="loader-percentage">0%</div>
+    </div>
+    <Header />
+    <main >
+        <Hero />
+        <About />
+        <Projects />
+        <Contact />
+        <div id="blur"></div>
+        <div id="blob"></div>
+    </main>
+    <Footer />
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+    <script is:inline src="/js/locomotive-scroll.min.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script is:inline>
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

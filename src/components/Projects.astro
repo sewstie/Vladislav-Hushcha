@@ -1,0 +1,12 @@
+---
+import projects from '../data/projects.json';
+import ProjectCard from './ProjectCard.astro';
+---
+<section class="projects" id="projects" data-scroll-section>
+    <div class="container">
+        <h3>Projects</h3>
+        <div class="projects-wrap">
+            {projects.map((project) => <ProjectCard {...project} />)}
+        </div>
+    </div>
+</section>
