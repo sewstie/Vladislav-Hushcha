@@ -19,44 +19,6 @@ if (!isPhone) {
     }
 }
 
-/* Loading screen */
-
-gsap.registerPlugin(TextPlugin);
-
-window.addEventListener('load', () => {
-  const loader = document.querySelector('.loader');
-  const percentage = document.querySelector('.loader-percentage');
-
-  locomotiveScroll.stop();
-
-  let width = 0;
-  const interval = setInterval(() => {
-      if (width >= 100) {
-          locomotiveScroll.update()
-          clearInterval(interval);
-          gsap.to(loader, {
-            opacity: 0,
-            scale: 0.8,
-            duration: 0.6,
-            onComplete: () => {
-              loader.style.display = 'none';
-              locomotiveScroll.start();
-            }
-          });
-          gsap.to('.typewriter', {
-              text: `Hi, I'm <span class='word'>Vlad</span>, a Creative Web Developer.`,
-              duration: 2.6,
-              ease: 'power1.in',
-              onComplete: () => setTimeout(() => document.querySelector('.cursor').style.display = 'none', 750)
-          });
-      } else {
-          width++;
-          percentage.textContent = `${width}%`;
-          percentage.style.color = `rgb(${150 + (255 - 150) * width / 100}, ${192 + (87 - 192) * width / 100}, ${179 + (51 - 179) * width / 100})`;
-      }
-  }, 20);
-});
-
 /* Locomotive scroll & GSAP scroll trigger */
 
 gsap.registerPlugin(ScrollTrigger);
