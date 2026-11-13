@@ -228,7 +228,30 @@ section:focus, footer:focus {
                 animation-range: entry 0% entry 100%;
             }
         }
+        /* Phones: "I am" sticks; each word + proof gets one screen, pinned mid-screen, and swaps with the next. */
+        @media (max-width: 600px) {
+            .about-wrap .word {position: sticky; top: calc(44px + 4.3vh); z-index: 1;}
+            #about .wrap-row {
+                height: 100svh;
+                justify-content: center;
+                pointer-events: none;
+                animation: about-swap linear both;
+                animation-timeline: view();
+                animation-range: cover 0% cover 100%;
+            }
+            #about .wrap-row h4, #about .wrap-row p {animation: none;}
+        }
     }
+}
+
+/* Over the cover range a 100svh row's centre travels 150svh -> -50svh; the translate cancels that,
+   pinning the content at 50svh. Visible 30-60%, so the next row (50% behind) fades in as this one leaves. */
+@keyframes about-swap {
+    0% {translate: 0 -100svh; opacity: 0;}
+    20% {opacity: 0;}
+    30%, 60% {opacity: 1;}
+    70% {opacity: 0;}
+    100% {translate: 0 100svh; opacity: 0;}
 }
 
 @keyframes reveal {
