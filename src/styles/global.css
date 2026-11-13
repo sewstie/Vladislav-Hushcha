@@ -765,7 +765,18 @@ section:focus, footer:focus {
     z-index: 3;
 }
 
-@media (min-width: 1025px) {
+.card-icon {
+    display: none;
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    z-index: 4;
+    color: var(--text-100);
+    text-shadow: 1px 1px black;
+    font-size: 1.25rem;
+}
+
+@media (min-width: 1025px) and (hover: hover) {
     .card {transition: transform 0.15s;}
     .card::before {transition: opacity 0.15s;}
     .overlay {transition: opacity 0.65s;}
@@ -774,6 +785,16 @@ section:focus, footer:focus {
     .card:is(:hover, :focus-visible) {--pseudo-opacity: 1; transform: scale(1.05);}
     .card:is(:hover, :focus-visible) .overlay {opacity: 0.6;}
     .card:is(:hover, :focus-visible) .card-content {opacity: 1; transform: none;}
+}
+
+/* Touch screens (any width) and small windows: title + description always on, no hover reveal. */
+@media (max-width: 1024px), (hover: none) {
+    .card{--pseudo-opacity: 0.5;}
+    .card::before{-webkit-animation: none;animation: none;}
+    .card:after{inset: 2.5px;}
+    .card-content{opacity: 1; position: absolute;}
+    .overlay{opacity: 0.5; top: initial; bottom: 0; border-radius: 0;}
+    .card-icon{display: block;}
 }
 
 /*     contact     */
@@ -1014,13 +1035,9 @@ section:focus, footer:focus {
 
     .projects{padding-top: 8vh; margin-top: 0;}
     .projects-wrap{margin-top: 5vh;}
-    .card{height: 27vh; --pseudo-opacity: 0.5;}
-    .card::before{-webkit-animation: none;animation: none;}
-    .card:after{inset: 2.5px;}
+    .card{height: 27vh;}
     .card h4{font-size: clamp(1.5rem, 2.5vw, 2rem);}
     .card p{font-size: clamp(1rem, 1.5vw, 1.25rem);}
-    .card-content{opacity: 1; position: absolute;}
-    .overlay{opacity: 0.5; top: initial; bottom: 0; border-radius: 0;}
 
     .contact{margin-top: 7vh;}
     .contact-wrap{padding-top: 5vh}

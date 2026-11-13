@@ -8,6 +8,7 @@ if (!src) throw new Error(`projects.json: missing image src/assets/${image}`);
 ---
 <a href={href} target="_blank" rel="noopener" class="card">
     <div class="overlay"></div>
+    <span class="card-icon" aria-hidden="true">↗</span>
     <Image src={src} alt={alt} width={960} widths={[480, 960]} sizes="(max-width: 600px) 100vw, 33vw" quality={70} />
     <div class="card-content">
         <h4>{title}</h4>
