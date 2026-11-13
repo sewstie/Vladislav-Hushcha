@@ -761,7 +761,7 @@ section:focus, footer:focus {
 
 .contact-wrap{
     font-size: clamp(2.25rem, 5.58vw, 7.5rem);
-    width: 9em;
+    width: 9.75em;
     max-width: 100%;
     font-family: 'Polt';
     text-transform: uppercase;
