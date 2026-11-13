@@ -1,44 +1,44 @@
 [
   {
-    "title": "Online-Zoo",
-    "href": "https://sewstie.github.io/online-zoo/",
-    "image": "projects-image-1.webp",
-    "alt": "Online-Zoo",
-    "description": "Dynamic web project with engaging visuals, intuitive navigation, and interactive features."
+    "title": "GoatPlan",
+    "href": "https://goatplan.vercel.app/",
+    "image": "goatplan.webp",
+    "alt": "GoatPlan weekly schedule planner with course search sidebar",
+    "description": "WPI course planner. C++ compiled to WebAssembly + Next.js. Search sections, see professor ratings, build a conflict-free term plan."
   },
   {
-    "title": "Shear",
-    "href": "https://sewstie.github.io/Shears/",
-    "image": "projects-image-2.webp",
-    "alt": "Shears",
-    "description": "Interactive web initiative featuring captivating imagery, seamless browsing, and dynamic user elements."
-  },
-  {
-    "title": "To Do List",
-    "href": "https://sewstie.github.io/ToDoList/",
-    "image": "projects-image-3.webp",
-    "alt": "ToDoList",
-    "description": "Interactive platform for seamless daily task organization."
-  },
-  {
-    "title": "Trip Weaver",
-    "href": "https://trip-weaver-omega.vercel.app/",
-    "image": "projects-image-4.webp",
-    "alt": "Trip Weaver",
-    "description": "TripWeaver is your ultimate travel planning companion."
+    "title": "pravapis",
+    "href": "https://github.com/sewstie/pravapis",
+    "image": "pravapis.webp",
+    "alt": "pravapis Belarusian orthography converter with input and output panels",
+    "description": "Open-source Belarusian orthography converter: Narkamaŭka ↔ Taraškievica, Cyrillic ↔ Łacinka. npm package in TypeScript, plus Python. Powers paznaj.by."
   },
   {
     "title": "Paznaj",
     "href": "https://paznaj.by/",
     "image": "projects-image-5.webp",
-    "alt": "Paznaj",
-    "description": "Discover Belarus: places, culture, and travel routes worth knowing."
+    "alt": "Paznaj homepage about Belarusian places and culture",
+    "description": "Guide to Belarus: places, culture, travel routes. Next.js, i18next. Switches between Belarusian spellings via pravapis."
   },
   {
-    "title": "WIP",
-    "href": "#",
-    "image": "projects-image-blank.webp",
-    "alt": "",
-    "description": "Here you will see my next project"
+    "title": "Trip Weaver",
+    "href": "https://trip-weaver-omega.vercel.app/",
+    "image": "projects-image-4.webp",
+    "alt": "Trip Weaver travel itinerary planner",
+    "description": "Collaborative trip planner. Next.js, Firebase, Leaflet. Day-by-day itinerary with drag-and-drop and shared edit access."
+  },
+  {
+    "title": "Shears",
+    "href": "https://sewstie.github.io/Shears/",
+    "image": "projects-image-2.webp",
+    "alt": "Shears hair salon website",
+    "description": "Website for a hair salon. HTML, CSS, vanilla JavaScript. Service menu, portfolio gallery and booking section."
+  },
+  {
+    "title": "To Do List",
+    "href": "https://sewstie.github.io/ToDoList/",
+    "image": "projects-image-3.webp",
+    "alt": "To Do List app with tasks and deadlines",
+    "description": "Task manager. React, Firebase, Tailwind. Google sign-in, priorities and deadlines synced through Firestore."
   }
 ]
