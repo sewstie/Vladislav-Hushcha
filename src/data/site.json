@@ -10,6 +10,5 @@
   "business": {
     "url": "https://web.vladislavhushcha.me",
     "live": false
-  },
-  "footer": "Worcester, MA · Built with Astro"
+  }
 }

@@ -23,14 +23,13 @@ const hasResume = existsSync(`public${links.resume}`);
                 <p class="word">SOLUTION</p>
             </div>
             <div class="line">
-                <a href={links.source} target="_blank" rel="noopener" class="word fancy">COLLABORATIVELY</a>
-            </div>
-            <div class="line">
-                <a href={`mailto:${email}`} class="word fancy">→ EMAIL</a>
-                <a href={links.github} target="_blank" rel="noopener" class="word fancy">→ GITHUB</a>
+                <a href={links.github} target="_blank" rel="noopener" class="word fancy">COLLABORATIVELY</a>
             </div>
             <div class="line">
                 <a href={links.linkedin} target="_blank" rel="noopener" class="word fancy">→ LINKEDIN</a>
+            </div>
+            <div class="line">
+                <a href={`mailto:${email}`} class="word fancy">→ EMAIL</a>
             </div>
             {hasResume && (
                 <div class="line">
@@ -45,7 +44,7 @@ const hasResume = existsSync(`public${links.resume}`);
                 <a href={`mailto:${email}`}>{email}</a>
                 {business.live && <a href={business.url} target="_blank" rel="noopener">Building a website for your business? →</a>}
             </div>
-            <p>{site.footer} · © <span id="footer-year">{new Date().getFullYear()}</span> {site.name}</p>
+            <p>©<span id="footer-year">{new Date().getFullYear()}</span> {site.name}</p>
         </div>
     </div>
 </footer>
