@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+<style>.m{stroke:#1A1A1A}@media (prefers-color-scheme:dark){.m{stroke:#FFF}}</style>
+<g fill="none" stroke-width="2.4" stroke-linejoin="round">
+<path class="m" d="M16 3 27.3 9.5v13L16 29 4.7 22.5v-13z"/>
+<path stroke="#FF5733" stroke-width="1.6" d="M16 16V3M16 16l11.3 6.5M16 16 4.7 22.5"/>
+</g>
+<circle cx="16" cy="16" r="2.6" fill="#FF5733"/>
+</svg>
