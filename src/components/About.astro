@@ -1,24 +1,20 @@
+---
+import site from '../data/site.json';
+
+const { intro, items, current } = site.about;
+---
 <section class="about" id="about">
     <div class="container">
         <h3 >About</h3>
         <div class="about-wrap">
-            <h4 class="word">I am</h4>
-            <div class="wrap-row">
-                <h4>Curious </h4>
-                <p>"I'm a curious developer, always seeking to expand my knowledge and explore the latest technologies to create innovative solutions."</p>
-            </div>
-            <div class="wrap-row">
-                <h4>Passionate </h4>
-                <p>"My passion for web development drives me to create meaningful digital experiences that leave a lasting impact on users."</p>
-            </div>
-            <div class="wrap-row">
-                <h4>Collaborative</h4>
-                <p>"I thrive in collaborative environments, where I can leverage diverse perspectives and work together to achieve outstanding results."</p>
-            </div>
-            <div class="wrap-row">
-                <h4>Enthusiastic</h4>
-                <p>"My enthusiasm for web development is contagious, and I'm always eager to tackle new challenges and bring creative ideas to life."</p>
-            </div>
+            <h4 class="word">{intro}</h4>
+            {items.map(({ word, proof }) => (
+                <div class="wrap-row">
+                    <h4>{word}</h4>
+                    <p>{proof}</p>
+                </div>
+            ))}
         </div>
+        <a href={current.href} target="_blank" rel="noopener" class="about-current">{current.text}</a>
     </div>
 </section>
