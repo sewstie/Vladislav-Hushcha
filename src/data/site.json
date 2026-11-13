@@ -15,20 +15,20 @@
     "intro": "I am",
     "items": [
       {
-        "word": "Builder",
-        "proof": "Shipped a C++ → WebAssembly course planner and an open-source npm package this year."
-      },
-      {
-        "word": "Curious",
-        "proof": "I like going one layer down: from React to WebAssembly, from the UI to the build."
-      },
-      {
         "word": "Fast",
         "proof": "Sites I build load in under a second, this one included."
       },
       {
         "word": "Mentor",
         "proof": "Started a coding club and taught younger students for a year and a half."
+      },
+      {
+        "word": "Builder",
+        "proof": "Shipped a C++ → WebAssembly course planner and an open-source npm package this year."
+      },
+      {
+        "word": "Curious",
+        "proof": "I like going one layer down: from React to WebAssembly, from the UI to the build."
       },
       {
         "word": "Team player",
